@@ -6,6 +6,7 @@ import org.alexdev.finlay.server.netty.streams.NettyResponse;
 import org.alexdev.finlay.util.config.GameConfiguration;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SESSION_PARAMETERS extends MessageComposer {
@@ -27,19 +28,7 @@ public class SESSION_PARAMETERS extends MessageComposer {
         ALLOW_DIRECT_MAIL(4),
 
         // Configures date formatting. Value is date string.
-        DATE_FORMAT(5),
-
-        // conf_partner_integration. Value is either 1 or 0 (enabled or disabled)
-        PARTNER_INTEGRATION_ENABLED(6),
-
-        // allow_profile_editing. Enables the client (in-game) profile editor
-        ALLOW_PROFILE_EDITING(7),
-
-        // tracking_header. Value is unknown
-        TRACKING_HEADER(8),
-
-        // tutorial_enabled. Value is either 1 or 0 (enabled or disabled)
-        TUTORIAL_ENABLED(9);
+        DATE_FORMAT(5);
 
         private final int paramID;
 
@@ -60,17 +49,14 @@ public class SESSION_PARAMETERS extends MessageComposer {
 
     @Override
     public void compose(NettyResponse response) {
-        Map<SessionParamType, String> parameters = new HashMap<>();
+        Map<SessionParamType, String> parameters = new LinkedHashMap<>();
 
+        parameters.put(SessionParamType.REGISTER_COPPA, "1");
         parameters.put(SessionParamType.VOUCHER_ENABLED, GameConfiguration.getInstance().getBoolean("vouchers.enabled") ? "1" : "0"); // conf_voucher. Determines if vouchers are enabled in the client (in-game)
-        parameters.put(SessionParamType.REGISTER_REQUIRE_PARENT_EMAIL, "0"); // conf_parent_email_request. I think this is to switch parent email on/off
         parameters.put(SessionParamType.REGISTER_SEND_PARENT_EMAIL, "0"); // conf_parent_email_request_reregistration. ???
-        parameters.put(SessionParamType.ALLOW_DIRECT_MAIL, "0"); // conf_allow_direct_mail. ???
+        parameters.put(SessionParamType.REGISTER_REQUIRE_PARENT_EMAIL, "1"); // conf_parent_email_request. I think this is to switch parent email on/off
+        parameters.put(SessionParamType.ALLOW_DIRECT_MAIL, "1"); // conf_allow_direct_mail. ???
         parameters.put(SessionParamType.DATE_FORMAT, "dd-MM-yyyy"); // Configures date formatting. Value is date string.
-        parameters.put(SessionParamType.PARTNER_INTEGRATION_ENABLED, "0");  // conf_partner_integration. Value is either 1 or 0 (enabled or disabled)
-        parameters.put(SessionParamType.ALLOW_PROFILE_EDITING, GameConfiguration.getInstance().getBoolean("profile.editing") ? "1" : "0"); // allow_profile_editing. Enables the client (in-game) profile editor
-        parameters.put(SessionParamType.TRACKING_HEADER, ""); // tracking_header. Value is unknown
-        parameters.put(SessionParamType.TUTORIAL_ENABLED, this.details.isTutorialFinished() ? "0" : "1"); // tutorial_enabled. Value is either 1 or 0 (enabled or disabled)
 
         response.writeInt(parameters.size());
 

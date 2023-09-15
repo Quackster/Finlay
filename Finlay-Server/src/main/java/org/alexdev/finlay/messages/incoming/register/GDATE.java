@@ -11,6 +11,6 @@ import org.alexdev.finlay.util.config.GameConfiguration;
 public class GDATE implements MessageEvent {
     @Override
     public void handle(Player player, NettyRequest reader) throws Exception {
-        player.send(new DATE(DateUtil.getShortDate().replace("-", ".")));
+        player.send(new DATE(DateUtil.getShortDate()));
     }
 }

@@ -41,10 +41,7 @@ import org.alexdev.finlay.messages.incoming.rooms.items.*;
 import org.alexdev.finlay.messages.incoming.rooms.moderation.*;
 import org.alexdev.finlay.messages.incoming.rooms.pool.*;
 import org.alexdev.finlay.messages.incoming.rooms.settings.*;
-import org.alexdev.finlay.messages.incoming.rooms.teleporter.DOORGOIN;
 import org.alexdev.finlay.messages.incoming.rooms.teleporter.GETDOORFLAT;
-import org.alexdev.finlay.messages.incoming.rooms.teleporter.GOVIADOOR;
-import org.alexdev.finlay.messages.incoming.rooms.teleporter.INTODOOR;
 import org.alexdev.finlay.messages.incoming.rooms.user.*;
 import org.alexdev.finlay.messages.incoming.songs.*;
 import org.alexdev.finlay.messages.incoming.trade.*;
@@ -134,6 +131,8 @@ public class MessageHandler {
         registerEvent(203, new APPROVE_PASSWORD());
         registerEvent(197, new APPROVEEMAIL());
         registerEvent(43, new REGISTER());
+        registerEvent(146, new PARENT_EMAIL_REQUIRED());
+        registerEvent(131, new COPPA_REG_GETREALTIME());
     }
 
     /**
