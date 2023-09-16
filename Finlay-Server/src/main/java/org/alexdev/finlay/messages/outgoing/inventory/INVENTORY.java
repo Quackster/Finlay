@@ -19,11 +19,10 @@ public class INVENTORY extends MessageComposer {
     @Override
     public void compose(NettyResponse response) {
         for (var kvp : this.casts.entrySet()) {
-            this.inventory.serialise(response, kvp.getValue(), kvp.getKey());
+            Inventory.serialise(response, kvp.getValue(), kvp.getKey());
         }
 
-        response.write((char) 13);
-        response.write(this.inventory.getItems().size());
+        response.writeDelimeter((char)13, this.inventory.getItems().size());
     }
 
     @Override

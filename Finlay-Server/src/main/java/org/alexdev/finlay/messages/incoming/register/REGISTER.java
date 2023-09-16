@@ -101,7 +101,9 @@ public class REGISTER implements MessageEvent {
         PlayerDao.register(username, hashedPassword, figure, gender, email, birthday);
 
         // Force logged in
-        PlayerDao.login(player.getDetails(), username, password);
+        if (PlayerDao.login(player.getDetails(), username, password)) {
+            player.login();
+        }
 
         //System.out.println(name + " / " + figure + " / " + gender + " / " + email + " / " + birthday + " / " + password);
     }

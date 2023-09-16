@@ -161,15 +161,16 @@ public class Inventory {
         response.writeDelimeter(item.getDefinition().getSprite(), (char) 30);
 
         if (item.hasBehaviour(ItemBehaviour.WALL_ITEM)) {
-            response.writeDelimeter(item.getCustomData(), (char) 30);
-            response.writeDelimeter("0", (char) 30);
+            if (item.getDefinition().getSprite().equalsIgnoreCase("poster")) {
+                response.writeDelimeter(item.getCustomData(), (char) 30);
+            } else {
+                response.write(item.getDefinition().getColour());
+            }
         } else {
             response.writeDelimeter(item.getDefinition().getLength(), (char) 30);
             response.writeDelimeter(item.getDefinition().getWidth(), (char) 30);
-            response.writeDelimeter(item.getCustomData(), (char) 30);
-            response.writeDelimeter(item.getDefinition().getColour(), (char) 30);
-            response.writeDelimeter(item.getDefinition().isRecyclable() ? 1 : 1, (char) 30);
-            response.writeDelimeter(item.getDefinition().getSprite(), (char) 30);
+            response.write(item.getDefinition().getColour());
+
         }
 
         response.write("/");
