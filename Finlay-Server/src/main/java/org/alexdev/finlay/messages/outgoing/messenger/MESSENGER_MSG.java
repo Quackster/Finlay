@@ -1,6 +1,8 @@
 package org.alexdev.finlay.messages.outgoing.messenger;
 
 import org.alexdev.finlay.game.messenger.MessengerMessage;
+import org.alexdev.finlay.game.player.Player;
+import org.alexdev.finlay.game.player.PlayerDetails;
 import org.alexdev.finlay.messages.types.MessageComposer;
 import org.alexdev.finlay.server.netty.streams.NettyResponse;
 import org.alexdev.finlay.util.DateUtil;
@@ -17,15 +19,16 @@ public class MESSENGER_MSG extends MessageComposer {
         /*
           if (getPlayer().getVersion() < 23) {   */
             //if (getPlayer().getVersion() <= 14) {
-                response.writeInt(1);
+        response.writeInt(1); // count
             //}//
 
 
 
-            response.writeInt(this.message.getId());
-            response.writeInt(this.message.getFromId());
-            response.writeString(DateUtil.getDateAsString(this.message.getTimeSet()));
-            response.writeString(this.message.getMessage());
+        response.writeInt(this.message.getId());
+        response.writeInt(this.message.getFromId());
+        response.writeString(this.message.getSenderDetails().getFigure());
+        response.writeString(DateUtil.getDateAsString(this.message.getTimeSet()));
+        response.writeString(this.message.getMessage());
         /*} else {
             //response.writeInt(this.message.getVirtualId());
             response.writeInt(this.message.getFromId());

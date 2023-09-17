@@ -18,8 +18,9 @@ public class USER_OBJECT extends MessageComposer {
         response.writeValue("sex", Character.toLowerCase(this.details.getSex()));
         response.writeValue("customData", this.details.getMotto());
         response.writeValue("ph_tickets", this.details.getTickets());
-        response.writeValue("ph_figure=ch", this.details.getPoolFigure());
         response.writeValue("photo_film", this.details.getFilm());
+        response.writeValue("ph_figure", this.details.getPoolFigure());
+        response.writeValue("directMail", "0");
     }
 
     @Override

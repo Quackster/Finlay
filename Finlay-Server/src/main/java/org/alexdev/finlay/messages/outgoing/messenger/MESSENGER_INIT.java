@@ -1,16 +1,23 @@
 package org.alexdev.finlay.messages.outgoing.messenger;
 
+import org.alexdev.finlay.game.messenger.MessengerMessage;
 import org.alexdev.finlay.game.player.Player;
 import org.alexdev.finlay.game.messenger.Messenger;
 import org.alexdev.finlay.game.messenger.MessengerUser;
 import org.alexdev.finlay.messages.types.MessageComposer;
 import org.alexdev.finlay.server.netty.streams.NettyResponse;
+import org.alexdev.finlay.util.DateUtil;
 import org.alexdev.finlay.util.config.GameConfiguration;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public class MESSENGER_INIT extends MessageComposer {
     private final Player player;
+    private final List<MessengerMessage> messages;
+    private final List<MessengerUser> requests;
     private String persistentMessage;
     private final int friendsLimit;
     private List<MessengerUser> friends;
@@ -20,6 +27,8 @@ public class MESSENGER_INIT extends MessageComposer {
         this.persistentMessage = persistentMessage;
         this.friendsLimit = data.getFriendsLimit();
         this.friends = data.getFriends();
+        this.messages = data.getOfflineMessages().values().stream().toList();
+        this.requests = data.getRequests();
     }
 
     @Override
@@ -36,6 +45,25 @@ public class MESSENGER_INIT extends MessageComposer {
 
         for (MessengerUser friend : this.friends) {
             friend.serialise(response);
+        }
+
+        response.writeInt(this.messages.size());
+
+        for (MessengerMessage msg : this.messages) {
+            response.writeInt(msg.getId());
+            response.writeInt(msg.getFromId());
+            response.writeString(msg.getSenderDetails().getFigure());
+            response.writeString(DateUtil.getDateAsString(msg.getTimeSet()));
+            response.writeString(msg.getMessage());
+        }
+
+        response.writeInt(0); // campaign messages
+
+        response.writeInt(this.requests.size());
+
+        for (MessengerUser requester : this.requests) {
+            response.writeInt(requester.getUserId());
+            response.writeString(requester.getUsername());
         }
     }
 

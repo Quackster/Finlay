@@ -1,6 +1,12 @@
 package org.alexdev.finlay.game.messenger;
 
+import org.alexdev.finlay.game.player.Player;
+import org.alexdev.finlay.game.player.PlayerDetails;
+import org.alexdev.finlay.game.player.PlayerManager;
+
 public class MessengerMessage {
+    private final Player sender;
+    private final PlayerDetails senderDetails;
     private int id;
     private int toId;
     private int fromId;
@@ -13,6 +19,8 @@ public class MessengerMessage {
         this.fromId = fromId;
         this.timeSet = timeSet;
         this.message = message;
+        this.sender = PlayerManager.getInstance().getPlayerById(fromId);
+        this.senderDetails = PlayerManager.getInstance().getPlayerData(fromId);
     }
 
     public int getId() {
@@ -33,5 +41,13 @@ public class MessengerMessage {
 
     public String getMessage() {
         return message;
+    }
+
+    public Player getSender() {
+        return sender;
+    }
+
+    public PlayerDetails getSenderDetails() {
+        return senderDetails;
     }
 }
