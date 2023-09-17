@@ -1,8 +1,11 @@
 package org.alexdev.finlay.server.netty;
 
 import io.netty.channel.Channel;
+import org.alexdev.finlay.game.encryption.HabboHexRC4;
 import org.alexdev.finlay.messages.types.MessageComposer;
+import org.alexdev.finlay.server.netty.codec.EncryptionDecoder;
 
+import java.math.BigInteger;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -15,6 +18,10 @@ public class NettyPlayerNetwork {
         this.channel = channel;
         this.connectionId = connectionId;
         this.port = Integer.parseInt(channel.localAddress().toString().split(":")[1]);
+    }
+
+    public void createEncryptionPipeline(HabboHexRC4 decoder) {
+        this.channel.pipeline().addBefore("gameDecoder", "encryptionDecoder", new EncryptionDecoder(decoder));
     }
 
     public Channel getChannel() {
@@ -48,6 +55,5 @@ public class NettyPlayerNetwork {
     public static String getIpAddress(Channel channel) {
         return channel.remoteAddress().toString().replace("/", "").split(":")[0];
     }
-
 
 }

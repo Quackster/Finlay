@@ -8,6 +8,7 @@ import org.alexdev.finlay.game.bot.BotManager;
 import org.alexdev.finlay.game.catalogue.CatalogueManager;
 import org.alexdev.finlay.game.catalogue.RareManager;
 import org.alexdev.finlay.game.commands.CommandManager;
+import org.alexdev.finlay.game.encryption.HabboHexRC4;
 import org.alexdev.finlay.game.events.EventsManager;
 import org.alexdev.finlay.game.fuserights.FuserightsManager;
 import org.alexdev.finlay.game.games.GameManager;
@@ -80,6 +81,9 @@ public class Finlay {
             }
             
             log.info("Setting up game");
+
+            String secretKey = "62ief81myndq3udqod6tlq84s276ol6rwjj590w27211y5v1v4732";// HabboHexRC4.generatePublicKeyString();
+            new HabboHexRC4(secretKey);
             //log.info(REGISTER.createPassword("lol"));
 
             GameConfiguration.getInstance(new GameConfigWriter());

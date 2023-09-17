@@ -13,6 +13,6 @@ public class INIT_CRYPTO implements MessageEvent {
             return;
         }
 
-        player.send(new CRYPTO_PARAMETERS());
+        // player.send(new CRYPTO_PARAMETERS());
     }
 }

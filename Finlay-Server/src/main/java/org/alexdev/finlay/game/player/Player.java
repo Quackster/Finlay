@@ -6,6 +6,7 @@ import org.alexdev.finlay.dao.mysql.PlayerDao;
 import org.alexdev.finlay.dao.mysql.SettingsDao;
 import org.alexdev.finlay.game.GameScheduler;
 import org.alexdev.finlay.game.club.ClubSubscription;
+import org.alexdev.finlay.game.encryption.HabboHexRC4;
 import org.alexdev.finlay.game.entity.Entity;
 import org.alexdev.finlay.game.entity.EntityType;
 import org.alexdev.finlay.game.fuserights.Fuseright;
@@ -28,6 +29,7 @@ import org.alexdev.finlay.util.config.GameConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,6 +41,7 @@ public class Player extends Entity {
     private final NettyPlayerNetwork network;
     private final PlayerDetails details;
     private final RoomPlayer roomEntity;
+    private HabboHexRC4 decoder;
 
     private Set<String> ignoredList;
 
@@ -49,6 +52,7 @@ public class Player extends Entity {
     private boolean loggedIn;
     private boolean disconnected;
     private boolean pingOK;
+    private String decoderSecretKey;
 
     public Player(NettyPlayerNetwork nettyPlayerNetwork) {
         this.network = nettyPlayerNetwork;
@@ -321,6 +325,17 @@ public class Player extends Entity {
 
     public Set<String> getIgnoredList() {
         return ignoredList;
+    }
+
+    public HabboHexRC4 getDecoder() {
+        return decoder;
+    }
+
+    public void setDecoder(String secretKey) {
+        this.decoderSecretKey = secretKey;
+
+        this.decoder = new HabboHexRC4(secretKey);
+        this.network.createEncryptionPipeline(this.decoder);
     }
 
     /*public int getVersion() {
