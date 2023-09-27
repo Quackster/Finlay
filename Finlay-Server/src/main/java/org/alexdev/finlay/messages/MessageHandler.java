@@ -12,10 +12,7 @@ import org.alexdev.finlay.messages.incoming.club.SCR_GIFT_APPROVAL;
 import org.alexdev.finlay.messages.incoming.club.SUBSCRIBE_CLUB;
 import org.alexdev.finlay.messages.incoming.events.*;
 import org.alexdev.finlay.messages.incoming.games.*;
-import org.alexdev.finlay.messages.incoming.handshake.GENERATEKEY;
-import org.alexdev.finlay.messages.incoming.handshake.INIT_CRYPTO;
-import org.alexdev.finlay.messages.incoming.handshake.SSO;
-import org.alexdev.finlay.messages.incoming.handshake.TRY_LOGIN;
+import org.alexdev.finlay.messages.incoming.handshake.*;
 import org.alexdev.finlay.messages.incoming.infobus.CHANGEWORLD;
 import org.alexdev.finlay.messages.incoming.infobus.TRYBUS;
 import org.alexdev.finlay.messages.incoming.infobus.VOTE;
@@ -114,11 +111,14 @@ public class MessageHandler {
      * Register handshake packets.
      */
     private void registerHandshakePackets() {
-        registerEvent(206, new INIT_CRYPTO());
-        registerEvent(2002, new GENERATEKEY());
         registerEvent(202, new GENERATEKEY());
-        registerEvent(204, new SSO());
+        // registerEvent(204, new SSO());
         registerEvent(4, new TRY_LOGIN());
+        registerEvent(202, new GENERATEKEY());
+        registerEvent(5, new VERSIONCHECK());
+        registerEvent(181, new GET_SESSION_PARAMETERS());
+        registerEvent(6, new UNIQUEID());
+        registerEvent(9, new GETAVAILABLESETS());
     }
 
     /**
@@ -157,7 +157,6 @@ public class MessageHandler {
         registerEvent(319, new IGNORE_USER());
         registerEvent(322, new UNIGNORE_USER());
         registerEvent(228, new GET_SOUND_SETTING());
-        registerEvent(9, new GETAVAILABLESETS());
         registerEvent(149, new UPDATE_ACCOUNT());
         //registerEvent(315, new TEST_LATENCY());
     }

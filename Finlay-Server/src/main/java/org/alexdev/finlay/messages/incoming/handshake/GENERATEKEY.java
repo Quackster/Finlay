@@ -17,7 +17,7 @@ public class GENERATEKEY implements MessageEvent {
             return;
         }
 
-        String secretKey = "62ief81myndq3udqod6tlq84s276ol6rwjj590w27211y5v1v4732";// HabboHexRC4.generatePublicKeyString();
+        String secretKey = HabboHexRC4.generatePublicKeyString();
 
         player.setDecoder(secretKey);
         player.send(new SECRET_KEY(secretKey));

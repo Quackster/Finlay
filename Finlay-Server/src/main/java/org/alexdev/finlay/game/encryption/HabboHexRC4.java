@@ -1,6 +1,8 @@
 package org.alexdev.finlay.game.encryption;
 
+import java.security.SecureRandom;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class HabboHexRC4 {
     /*
@@ -139,16 +141,19 @@ public class HabboHexRC4 {
     }
 
     public static String generatePublicKeyString() {
-        int keyLength = new Random(System.currentTimeMillis()).nextInt(52, 64);
-        Random v = new Random(System.currentTimeMillis() + System.currentTimeMillis() + keyLength);
+        var v = new SecureRandom();
+        int keyLength = v.nextInt(52, 64);
+
         StringBuilder sb = new StringBuilder(keyLength);
 
         for (int i = 0; i < keyLength; i++) {
-            int j = 0;
-            if (v.nextInt(0, 2) == 1)
+            int j;
+            
+            if (v.nextBoolean())
                 j = v.nextInt(97, 123);
             else
                 j = v.nextInt(48, 58);
+
             sb.append((char) j);
         }
 
