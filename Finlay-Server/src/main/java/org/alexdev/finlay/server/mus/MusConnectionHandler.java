@@ -73,7 +73,7 @@ public class MusConnectionHandler extends SimpleChannelInboundHandler<MusMessage
         }
 
         try {
-            //log.info("[MUS] Message from {}: {}", ctx.channel().remoteAddress().toString().replace("/", "").split(":")[0], message.toString());
+            log.info("[MUS] Message from {}: {}", ctx.channel().remoteAddress().toString().replace("/", "").split(":")[0], message.toString());
 
             if (message.getSubject().equals("Logon")) {
                 reply = new MusMessage();
@@ -95,22 +95,23 @@ public class MusConnectionHandler extends SimpleChannelInboundHandler<MusMessage
                 Player player = null;
                 int userId = -1;
 
-                if (!StringUtils.isNumeric(credentials[0])) {
-                    String username = credentials[0];
-                    String password = credentials[1];
+                // if (!StringUtils.isNumeric(credentials[0])) {
+                String username = credentials[0];
+                String password = credentials[1];
 
-                    PlayerDetails playerDetails = new PlayerDetails();
+                PlayerDetails playerDetails = new PlayerDetails();
 
-                    if (PlayerDao.login(playerDetails, username, password)) {
-                        player =  PlayerManager.getInstance().getPlayerById(playerDetails.getId());
-                        userId = playerDetails.getId();
-                    } else {
-                        player = null;
-                    }
-                } else {
-                    userId = Integer.valueOf(credentials[0]);
-                    player = PlayerManager.getInstance().getPlayerById(userId);
-                }
+                if (PlayerDao.login(playerDetails, username, password)) {
+                    player = PlayerManager.getInstance().getPlayerById(playerDetails.getId());
+                    userId = playerDetails.getId();
+                }/* else {
+                    player = null;
+                }*/
+
+                // } else {
+                //    userId = Integer.valueOf(credentials[0]);
+                //    player = PlayerManager.getInstance().getPlayerById(userId);
+                // }
 
                 // Er, ma, gerd, we logged in! ;O
                 if (player != null && NettyPlayerNetwork.getIpAddress(player.getNetwork().getChannel()).equals(NettyPlayerNetwork.getIpAddress(ctx.channel()))) {
