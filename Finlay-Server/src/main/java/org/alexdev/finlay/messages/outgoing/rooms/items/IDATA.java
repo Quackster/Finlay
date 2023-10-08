@@ -24,7 +24,7 @@ public class IDATA extends MessageComposer {
     public void compose(NettyResponse response) {
         if (this.item.hasBehaviour(ItemBehaviour.POST_IT)) {
             response.writeDelimeter(this.item.getId(), (char) 9);
-            response.writeDelimeter(this.colour, ' ');
+            response.writeDelimeter(this.colour, (char) 13);
             response.write(this.text);
         } else {
             response.writeDelimeter(this.item.getId(), (char) 9);
