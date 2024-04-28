@@ -1,6 +1,6 @@
 # Finlay
 
-Finlay is a Habbo Hotel emulator [forked from Kepler](https://github.com/Quackster/Kepler) for supports Habbo Hotel v9.
+Finlay is a Habbo Hotel emulator [forked from Kepler](https://github.com/Quackster/Kepler) to support the Habbo Hotel V9 protocol.
 
 The server is written in Java and using various libraries, such as Netty, an asynchronous networking library, Log4j and the Apache commons libraries.
 
