@@ -4,6 +4,8 @@ Finlay is a Habbo Hotel emulator [forked from Kepler](https://github.com/Quackst
 
 The server is written in Java and using various libraries, such as Netty, an asynchronous networking library, Log4j and the Apache commons libraries.
 
+![](https://i.imgur.com/iob5Aik.png)
+
 ## License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
