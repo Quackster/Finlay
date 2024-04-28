@@ -1,17 +1,20 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.4.7-MariaDB - mariadb.org binary distribution
+-- Server version:               10.6.11-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             10.2.0.5599
+-- HeidiSQL Version:             12.3.0.6589
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping structure for table kepler.catalogue_items
+-- Dumping structure for table finlay.catalogue_items
 CREATE TABLE IF NOT EXISTS `catalogue_items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sale_code` varchar(255) DEFAULT NULL,
@@ -29,11 +32,10 @@ CREATE TABLE IF NOT EXISTS `catalogue_items` (
   `package_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1351 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1351 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.catalogue_items: ~940 rows (approximately)
-/*!40000 ALTER TABLE `catalogue_items` DISABLE KEYS */;
-INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`, `is_hidden`, `amount`, `definition_id`, `item_specialspriteid`, `name`, `description`, `is_package`, `package_name`, `package_description`) VALUES
+-- Dumping data for table finlay.catalogue_items: ~940 rows (approximately)
+REPLACE INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`, `is_hidden`, `amount`, `definition_id`, `item_specialspriteid`, `name`, `description`, `is_package`, `package_name`, `package_description`) VALUES
 	(1, 'floor', '3', 1, 2, 0, 1, 249, 0, '', '', 0, NULL, NULL),
 	(2, 'CF_50_goldbar', '4', 5, 50, 0, 1, 212, 0, 'Gold Bar', 'Worth 50 Credits', 0, NULL, NULL),
 	(3, 'CF_20_moneybag', '4', 4, 20, 0, 1, 211, 0, 'Sack of Credits', 'Worth 20 Credits', 0, NULL, NULL),
@@ -61,13 +63,13 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(25, 'pets0', '7', 1, 20, 0, 1, 154, 0, '', '', 0, NULL, NULL),
 	(26, 'pets1', '7', 2, 20, 0, 1, 776, 0, '', '', 0, NULL, NULL),
 	(27, 'pets2', '7', 3, 20, 0, 1, 777, 0, '', '', 0, NULL, NULL),
-	(28, 'deal_dogfood', '8', 1, 2, 0, 1, 0, 0, '', '', 1, 'Doggy Bones', 'Natural nutrition for the barking one'),
-	(29, 'deal_catfood', '8', 2, 2, 0, 1, 0, 0, '', '', 1, 'Sardines', 'Fresh catch of the day'),
-	(30, 'deal_crocfood', '8', 3, 2, 0, 1, 0, 0, '', '', 1, 'T-Bones', 'For the croc!'),
-	(31, 'deal_cabbage', '8', 4, 2, 0, 1, 0, 0, '', '', 1, 'Cabbage', 'Health food for pets'),
+	(28, 'deal_dogfood', '8', 1, 2, 1, 1, 0, 0, '', '', 1, 'Doggy Bones', 'Natural nutrition for the barking one'),
+	(29, 'deal_catfood', '8', 2, 2, 1, 1, 0, 0, '', '', 1, 'Sardines', 'Fresh catch of the day'),
+	(30, 'deal_crocfood', '8', 3, 2, 1, 1, 0, 0, '', '', 1, 'T-Bones', 'For the croc!'),
+	(31, 'deal_cabbage', '8', 4, 2, 1, 1, 0, 0, '', '', 1, 'Cabbage', 'Health food for pets'),
 	(32, 'petfood1', '8', 5, 1, 0, 1, 155, 0, 'Bones Mega Multipack', 'Fantastic 20% Saving!', 0, NULL, NULL),
 	(33, 'petfood2', '8', 6, 1, 0, 1, 156, 0, 'Sardines Mega Multipack', 'Fantastic 20% Saving!', 0, NULL, NULL),
-	(34, 'petfood4', '8', 7, 1, 0, 1, 236, 0, 'T-Bones Mega Multipack', 'Fantastic 20% Saving!', 0, NULL, NULL),
+	(34, 'petfood4', '8', 7, 1, 1, 1, 236, 0, 'T-Bones Mega Multipack', 'Fantastic 20% Saving!', 0, NULL, NULL),
 	(35, 'petfood3', '8', 8, 1, 0, 1, 157, 0, 'Cabbage Mega Multipack', 'Fantastic 20% Saving!', 0, NULL, NULL),
 	(36, 'waterbowl*4', '8', 9, 2, 0, 1, 158, 0, 'Blue Water Bowl', 'Aqua unlimited', 0, NULL, NULL),
 	(37, 'waterbowl*5', '8', 10, 2, 0, 1, 159, 0, 'Brown Water Bowl', 'Aqua unlimited', 0, NULL, NULL),
@@ -91,7 +93,7 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(55, 'divider_silo2', '9', 8, 3, 0, 1, 120, 0, 'Screen', 'Stylish sectioning', 0, NULL, NULL),
 	(56, 'divider_silo1', '9', 9, 3, 0, 1, 118, 0, 'Corner Shelf', 'Neat and natty', 0, NULL, NULL),
 	(57, 'chair_silo', '9', 10, 3, 0, 1, 8, 0, 'Dining Chair', 'Keep it simple', 0, NULL, NULL),
-	(58, 'safe_silo', '9', 11, 3, 0, 1, 203, 0, 'Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(58, 'safe_silo', '9', 11, 3, 1, 1, 203, 0, 'Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
 	(59, 'barchair_silo', '9', 12, 3, 0, 1, 197, 0, 'Bar Stool', 'Practical and convenient', 0, NULL, NULL),
 	(60, 'table_silo_med', '9', 13, 3, 0, 1, 6, 0, 'Coffee Table', 'Wipe clean and unobtrusive', 0, NULL, NULL),
 	(61, 'gothic_chair*3', '10', 1, 10, 0, 1, 229, 0, 'Red Gothic Chair', 'The head of the table', 0, NULL, NULL),
@@ -124,8 +126,8 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(88, 'carpet_polar*1', '12', 6, 4, 0, 1, 62, 0, 'Pink Faux-Fur Bear Rug', 'Cute', 0, NULL, NULL),
 	(89, 'bed_polyfon_girl_one', '12', 7, 3, 0, 1, 65, 0, 'Single Bed', 'Snuggle down in princess pink', 0, NULL, NULL),
 	(90, 'bed_polyfon_girl', '12', 8, 4, 0, 1, 66, 0, 'Double Bed', 'Snuggle down in princess pink', 0, NULL, NULL),
-	(91, 'wall_china', '13', 1, 8, 0, 1, 207, 0, 'Dragon Screen', 'For your great wall', 0, NULL, NULL),
-	(92, 'corner_china', '13', 2, 8, 0, 1, 208, 0, 'Dragon Screen Corner', 'Firm, fireproof foundation', 0, NULL, NULL),
+	(91, 'wall_china', '13', 1, 8, 1, 1, 207, 0, 'Dragon Screen', 'For your great wall', 0, NULL, NULL),
+	(92, 'corner_china', '13', 2, 8, 1, 1, 208, 0, 'Dragon Screen Corner', 'Firm, fireproof foundation', 0, NULL, NULL),
 	(93, 'china_shelve', '13', 3, 8, 0, 1, 204, 0, 'Chinese Bookshelf', 'To hold the mind\'s treasures', 0, NULL, NULL),
 	(94, 'chair_china', '13', 4, 5, 0, 1, 201, 0, 'Chinese Lacquer Chair', 'The elegant beauty of tradition', 0, NULL, NULL),
 	(95, 'china_table', '13', 5, 6, 0, 1, 202, 0, 'Chinese Lacquer Table', 'Exotic and classy', 0, NULL, NULL),
@@ -142,8 +144,8 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(106, 'divider_nor2', '14', 7, 3, 0, 1, 119, 0, 'Ice Bar-Desk', 'Strong, yet soft looking', 0, NULL, NULL),
 	(107, 'divider_nor1', '14', 8, 3, 0, 1, 117, 0, 'Ice Corner', 'Looks squishy, but isn\'t', 0, NULL, NULL),
 	(108, 'divider_nor3', '14', 9, 6, 0, 1, 121, 0, 'Door (Lockable)', 'Do go through...', 0, NULL, NULL),
-	(109, 'divider_nor4', '14', 10, 5, 0, 1, 206, 0, 'Plain Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(110, 'divider_nor5', '14', 11, 4, 0, 1, 205, 0, 'Plain Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(109, 'divider_nor4', '14', 10, 5, 1, 1, 206, 0, 'Plain Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(110, 'divider_nor5', '14', 11, 4, 1, 1, 205, 0, 'Plain Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
 	(111, 'bed_armas_two', '15', 1, 3, 0, 1, 22, 0, 'Double Bed', 'King-sized pine comfort', 0, NULL, NULL),
 	(112, 'bed_armas_one', '15', 2, 3, 0, 1, 30, 0, 'Single Bed', 'Rustic charm for one', 0, NULL, NULL),
 	(113, 'fireplace_armas', '15', 3, 4, 0, 1, 28, 0, 'Fireplace', 'Authentic, real flame fire', 0, NULL, NULL),
@@ -214,10 +216,10 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(178, 'plant_big_cactus', '21', 7, 3, 0, 1, 74, 0, 'Mature Cactus', 'Habbo Dreams monster in hiding!  Shhhh', 0, NULL, NULL),
 	(179, 'plant_small_cactus', '21', 8, 1, 0, 1, 72, 0, 'Small Cactus', 'Even less watering than the real world', 0, NULL, NULL),
 	(180, 'plant_fruittree', '21', 9, 3, 0, 1, 71, 0, 'Fruit Tree', 'Great yield and sweet fruit', 0, NULL, NULL),
-	(181, 'plant_bulrush', '21', 10, 3, 0, 1, 235, 0, 'Bulrush', 'Ideal for the riverside', 0, NULL, NULL),
+	(181, 'plant_bulrush', '21', 10, 3, 1, 1, 235, 0, 'Bulrush', 'Ideal for the riverside', 0, NULL, NULL),
 	(182, 'plant_cruddy', '21', 11, 6, 0, 1, 46, 0, 'Aloe Vera', 'Goodbye Bert...', 0, NULL, NULL),
-	(183, 'plant_maze', '21', 12, 5, 0, 1, 234, 0, 'Maze Shrubbery', 'Build your maze!', 0, NULL, NULL),
-	(184, 'plant_mazegate', '21', 13, 6, 0, 1, 233, 0, 'Maze Shrubbery Gate', 'Did we make it?', 0, NULL, NULL),
+	(183, 'plant_maze', '21', 12, 5, 1, 1, 234, 0, 'Maze Shrubbery', 'Build your maze!', 0, NULL, NULL),
+	(184, 'plant_mazegate', '21', 13, 6, 1, 1, 233, 0, 'Maze Shrubbery Gate', 'Did we make it?', 0, NULL, NULL),
 	(186, 'poster 52', '22', 1, 3, 0, 1, 251, 52, 'Hockey Stick', 'whack that ball!', 0, NULL, NULL),
 	(187, 'poster 53', '22', 2, 3, 0, 1, 251, 53, 'Hockey Stick', 'whack that ball!', 0, NULL, NULL),
 	(188, 'poster 54', '22', 3, 3, 0, 1, 251, 54, 'Hockey Stick', 'whack that ball!', 0, NULL, NULL),
@@ -378,8 +380,8 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(343, 'hc_djset', '27', 19, 5, 0, 1, 222, 0, 'The Grammophon', 'Very old skool scratch\'n\'spin', 0, NULL, NULL),
 	(344, 'hc_wall_lamp', '27', 20, 5, 0, 1, 246, 0, 'Retro Wall Lamp', 'Tres chic!', 0, NULL, NULL),
 	(345, 'hc_machine', '27', 21, 5, 0, 1, 225, 0, 'Weird Science Machine', 'By and for mad inventors', 0, NULL, NULL),
-	(346, 'deal_hcrollers', '27', 22, 5, 0, 1, 0, 0, '', '', 1, 'HC rollers set', 'Five of those uber rollers in one pack!'),
-	(347, 'deal_throne', '27', 23, 5, 0, 1, 0, 0, '', '', 1, 'Throne', 'Ten for the price of one!'),
+	(346, 'deal_hcrollers', '27', 22, 5, 1, 1, 0, 0, '', '', 1, 'HC rollers set', 'Five of those uber rollers in one pack!'),
+	(347, 'deal_throne', '27', 23, 5, 1, 1, 0, 0, '', '', 1, 'Throne', 'Ten for the price of one!'),
 	(348, 'rare_dragonlamp*4', '28', 1, 5, 0, 1, 170, 0, 'Black Dragon Lamp', 'Scary and scorching!', 0, NULL, NULL),
 	(349, 'rare_dragonlamp*0', '28', 2, 5, 0, 1, 171, 0, 'Fire Dragon Lamp', 'George and the...', 0, NULL, NULL),
 	(351, 'rare_dragonlamp*2', '28', 4, 5, 0, 1, 173, 0, 'Jade Dragon Lamp', 'Oriental beast of legends', 0, NULL, NULL),
@@ -482,11 +484,11 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(449, 'rare_fan*7', '40', 0, 5, 0, 1, 341, 0, 'Brown Powered Fan', '...it\'s really hit the fan!', 0, NULL, NULL),
 	(450, 'rare_fan*8', '40', 0, 5, 0, 1, 349, 0, 'Habbo Wind Turbine', 'Stylish, Eco-Energy!', 0, NULL, NULL),
 	(451, 'rare_fan*9', '40', 0, 5, 0, 1, 343, 0, 'Fucsia Powered Fan', 'It\'ll blow you away!', 0, NULL, NULL),
-	(452, 'habbowheel', '19', 0, 8, 0, 1, 351, 0, 'The Wheel of Destiny!', 'So you gotta ask yourself, \'Do I feel lucky?\'', 0, NULL, NULL),
+	(452, 'habbowheel', '19', 0, 8, 1, 1, 351, 0, 'The Wheel of Destiny!', 'So you gotta ask yourself, \'Do I feel lucky?\'', 0, NULL, NULL),
 	(453, 'roomdimmer', '19', 0, 12, 1, 1, 352, 0, 'Mood Light', 'Superior lighting for your room', 0, NULL, NULL),
 	(454, 'jukebox*1', '11,84,85,86,87,88,89', 2, 3, 0, 1, 353, 0, 'Jukebox', 'For your Happy Days!', 0, NULL, NULL),
 	(455, 'jukebox_ptv*1', '11', 0, 8, 1, 1, 354, 0, 'Jukebox Pacha TV', 'Jukebox Pacha TV', 0, NULL, NULL),
-	(456, 'carpet_soft_tut', '23', 0, 1, 0, 1, 355, 0, 'Welcome Mat', 'Welcome, enjoy your stay!', 0, NULL, NULL),
+	(456, 'carpet_soft_tut', '23', 0, 1, 1, 1, 355, 0, 'Welcome Mat', 'Welcome, enjoy your stay!', 0, NULL, NULL),
 	(458, 'sound_set_10', '89', 9, 3, 0, 1, 357, 0, 'Hip Hop Beats 1', 'Made from real Boy Bands!', 0, NULL, NULL),
 	(459, 'sound_set_11', '86', 9, 3, 0, 1, 361, 0, 'Dance 4', 'Music you can really sink your teeth into', 0, NULL, NULL),
 	(460, 'sound_set_12', '88', 9, 3, 0, 1, 362, 0, 'Habbo Sounds 2', 'Unusual as Standard', 0, NULL, NULL),
@@ -742,22 +744,22 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(841, 'divider_nor3*7', '14', 9, 6, 0, 1, 914, 0, 'Rural Iced gate', 'Entrance or exit?', 0, NULL, NULL),
 	(842, 'divider_nor3*8', '14', 9, 6, 0, 1, 915, 0, 'Yellow Iced gate', 'Yellow Iced gate', 0, NULL, NULL),
 	(843, 'divider_nor3*9', '14', 9, 6, 0, 1, 916, 0, 'Red Iced gate', 'Red Iced gate', 0, NULL, NULL),
-	(844, 'divider_nor4*2', '14', 10, 5, 0, 1, 917, 0, 'Black Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(845, 'divider_nor4*3', '14', 10, 5, 0, 1, 918, 0, 'White Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(846, 'divider_nor4*4', '14', 10, 5, 0, 1, 919, 0, 'Urban Iced Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(847, 'divider_nor4*5', '14', 10, 5, 0, 1, 920, 0, 'Pink Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(848, 'divider_nor4*6', '14', 10, 5, 0, 1, 921, 0, 'Blue Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(849, 'divider_nor4*7', '14', 10, 5, 0, 1, 922, 0, 'Rural Iced Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(850, 'divider_nor4*8', '14', 10, 5, 0, 1, 923, 0, 'Yellow Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(851, 'divider_nor4*9', '14', 10, 5, 0, 1, 924, 0, 'Red Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
-	(852, 'divider_nor5*2', '14', 11, 4, 0, 1, 925, 0, 'Black Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
-	(853, 'divider_nor5*3', '14', 11, 4, 0, 1, 926, 0, 'White Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
-	(854, 'divider_nor5*4', '14', 11, 4, 0, 1, 927, 0, 'Urban Iced Angle', 'Cool cornering for your crib!', 0, NULL, NULL),
-	(855, 'divider_nor5*5', '14', 11, 4, 0, 1, 928, 0, 'Pink Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
-	(856, 'divider_nor5*6', '14', 11, 4, 0, 1, 929, 0, 'Blue Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
-	(857, 'divider_nor5*7', '14', 11, 4, 0, 1, 930, 0, 'Rural Iced Angle', 'Cool cornering for your crib!', 0, NULL, NULL),
-	(858, 'divider_nor5*8', '14', 11, 4, 0, 1, 931, 0, 'Yellow Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
-	(859, 'divider_nor5*9', '14', 11, 4, 0, 1, 932, 0, 'Red Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(844, 'divider_nor4*2', '14', 10, 5, 1, 1, 917, 0, 'Black Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(845, 'divider_nor4*3', '14', 10, 5, 1, 1, 918, 0, 'White Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(846, 'divider_nor4*4', '14', 10, 5, 1, 1, 919, 0, 'Urban Iced Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(847, 'divider_nor4*5', '14', 10, 5, 1, 1, 920, 0, 'Pink Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(848, 'divider_nor4*6', '14', 10, 5, 1, 1, 921, 0, 'Blue Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(849, 'divider_nor4*7', '14', 10, 5, 1, 1, 922, 0, 'Rural Iced Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(850, 'divider_nor4*8', '14', 10, 5, 1, 1, 923, 0, 'Yellow Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(851, 'divider_nor4*9', '14', 10, 5, 1, 1, 924, 0, 'Red Iced Auto Shutter', 'Habbos, roll out!', 0, NULL, NULL),
+	(852, 'divider_nor5*2', '14', 11, 4, 1, 1, 925, 0, 'Black Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(853, 'divider_nor5*3', '14', 11, 4, 1, 1, 926, 0, 'White Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(854, 'divider_nor5*4', '14', 11, 4, 1, 1, 927, 0, 'Urban Iced Angle', 'Cool cornering for your crib!', 0, NULL, NULL),
+	(855, 'divider_nor5*5', '14', 11, 4, 1, 1, 928, 0, 'Pink Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(856, 'divider_nor5*6', '14', 11, 4, 1, 1, 929, 0, 'Blue Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(857, 'divider_nor5*7', '14', 11, 4, 1, 1, 930, 0, 'Rural Iced Angle', 'Cool cornering for your crib!', 0, NULL, NULL),
+	(858, 'divider_nor5*8', '14', 11, 4, 1, 1, 931, 0, 'Yellow Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
+	(859, 'divider_nor5*9', '14', 11, 4, 1, 1, 932, 0, 'Red Iced Angle', 'Cool cornering for your crib y0!', 0, NULL, NULL),
 	(860, 'sofa_silo*2', '9', 4, 3, 0, 1, 933, 0, 'Black Two-Seater Sofa', 'Cushioned, understated comfort', 0, NULL, NULL),
 	(861, 'sofa_silo*3', '9', 4, 3, 0, 1, 934, 0, 'White Two-Seater Sofa', 'Cushioned, understated comfort', 0, NULL, NULL),
 	(862, 'sofa_silo*4', '9', 4, 3, 0, 1, 935, 0, 'Beige Area Sofa', 'Beige Area Sofa', 0, NULL, NULL),
@@ -806,22 +808,22 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(905, 'chair_silo*7', '9', 10, 3, 0, 1, 978, 0, 'Green Area Dining Chair', 'Wooden dining chair', 0, NULL, NULL),
 	(906, 'chair_silo*8', '9', 10, 3, 0, 1, 979, 0, 'Yellow Dining Chair', 'Keep it simple', 0, NULL, NULL),
 	(907, 'chair_silo*9', '9', 10, 3, 0, 1, 980, 0, 'Red Area Dining Chair', 'Wooden dining chair', 0, NULL, NULL),
-	(908, 'safe_silo*2', '9', 11, 3, 0, 1, 981, 0, 'Black Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(909, 'safe_silo*3', '9', 11, 3, 0, 1, 982, 0, 'White Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(910, 'safe_silo*4', '9', 11, 3, 0, 1, 983, 0, 'Beige Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(911, 'safe_silo*5', '9', 11, 3, 0, 1, 984, 0, 'Pink Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(912, 'safe_silo*6', '9', 11, 3, 0, 1, 985, 0, 'Blue Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(913, 'safe_silo*7', '9', 11, 3, 0, 1, 986, 0, 'Green Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(914, 'safe_silo*8', '9', 11, 3, 0, 1, 987, 0, 'Yellow Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(915, 'safe_silo*9', '9', 11, 3, 0, 1, 988, 0, 'Red Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
-	(916, 'barchair_silo*2', '9', 12, 3, 0, 1, 989, 0, 'Black Bar Stool', 'Practical and convenient', 0, NULL, NULL),
-	(917, 'barchair_silo*3', '9', 12, 3, 0, 1, 990, 0, 'White Bar Stool', 'Practical and convenient', 0, NULL, NULL),
-	(918, 'barchair_silo*4', '9', 12, 3, 0, 1, 991, 0, 'Beige Bar Stool', 'Practical and convenient', 0, NULL, NULL),
-	(919, 'barchair_silo*5', '9', 12, 3, 0, 1, 992, 0, 'Pink Bar Stool', 'Practical and convenient', 0, NULL, NULL),
-	(920, 'barchair_silo*6', '9', 12, 3, 0, 1, 993, 0, 'Blue Bar Stool', 'Take a perch!', 0, NULL, NULL),
-	(921, 'barchair_silo*7', '9', 12, 3, 0, 1, 994, 0, 'Green Bar Stool', 'Take a perch!', 0, NULL, NULL),
-	(922, 'barchair_silo*8', '9', 12, 3, 0, 1, 995, 0, 'Yellow Bar Stool', 'Practical and convenient', 0, NULL, NULL),
-	(923, 'barchair_silo*9', '9', 12, 3, 0, 1, 996, 0, 'Red Bar Stool', 'Practical and convenient', 0, NULL, NULL),
+	(908, 'safe_silo*2', '9', 11, 3, 1, 1, 981, 0, 'Black Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(909, 'safe_silo*3', '9', 11, 3, 1, 1, 982, 0, 'White Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(910, 'safe_silo*4', '9', 11, 3, 1, 1, 983, 0, 'Beige Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(911, 'safe_silo*5', '9', 11, 3, 1, 1, 984, 0, 'Pink Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(912, 'safe_silo*6', '9', 11, 3, 1, 1, 985, 0, 'Blue Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(913, 'safe_silo*7', '9', 11, 3, 1, 1, 986, 0, 'Green Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(914, 'safe_silo*8', '9', 11, 3, 1, 1, 987, 0, 'Yellow Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(915, 'safe_silo*9', '9', 11, 3, 1, 1, 988, 0, 'Red Safe Minibar', 'Totally shatter-proof!', 0, NULL, NULL),
+	(916, 'barchair_silo*2', '9', 12, 3, 1, 1, 989, 0, 'Black Bar Stool', 'Practical and convenient', 0, NULL, NULL),
+	(917, 'barchair_silo*3', '9', 12, 3, 1, 1, 990, 0, 'White Bar Stool', 'Practical and convenient', 0, NULL, NULL),
+	(918, 'barchair_silo*4', '9', 12, 3, 1, 1, 991, 0, 'Beige Bar Stool', 'Practical and convenient', 0, NULL, NULL),
+	(919, 'barchair_silo*5', '9', 12, 3, 1, 1, 992, 0, 'Pink Bar Stool', 'Practical and convenient', 0, NULL, NULL),
+	(920, 'barchair_silo*6', '9', 12, 3, 1, 1, 993, 0, 'Blue Bar Stool', 'Take a perch!', 0, NULL, NULL),
+	(921, 'barchair_silo*7', '9', 12, 3, 1, 1, 994, 0, 'Green Bar Stool', 'Take a perch!', 0, NULL, NULL),
+	(922, 'barchair_silo*8', '9', 12, 3, 1, 1, 995, 0, 'Yellow Bar Stool', 'Practical and convenient', 0, NULL, NULL),
+	(923, 'barchair_silo*9', '9', 12, 3, 1, 1, 996, 0, 'Red Bar Stool', 'Practical and convenient', 0, NULL, NULL),
 	(924, 'table_silo_med*2', '9', 13, 3, 0, 1, 997, 0, 'Black Coffee Table', 'Wipe clean and unobtrusive', 0, NULL, NULL),
 	(925, 'table_silo_med*3', '9', 13, 3, 0, 1, 998, 0, 'White Coffee Table', 'Wipe clean and unobtrusive', 0, NULL, NULL),
 	(926, 'table_silo_med*4', '9', 13, 3, 0, 1, 999, 0, 'Beige Area Coffee Table', 'Beige Area Coffee Table', 0, NULL, NULL),
@@ -830,60 +832,60 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(929, 'table_silo_med*7', '9', 13, 3, 0, 1, 1002, 0, 'Green Area Coffee Table', 'Gather everyone round', 0, NULL, NULL),
 	(930, 'table_silo_med*8', '9', 13, 3, 0, 1, 1003, 0, 'Yellow Coffee Table', 'Wipe clean and unobtrusive', 0, NULL, NULL),
 	(931, 'table_silo_med*9', '9', 13, 3, 0, 1, 1004, 0, 'Red Area Coffee Table', 'Red Area Coffee Table', 0, NULL, NULL),
-	(932, 'pura_mdl1*1', '17', 7, 3, 0, 1, 1005, 0, 'Aqua Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(933, 'pura_mdl2*1', '17', 8, 3, 0, 1, 1006, 0, 'Aqua Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(934, 'pura_mdl3*1', '17', 9, 3, 0, 1, 1007, 0, 'Aqua Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(935, 'pura_mdl4*1', '17', 10, 3, 0, 1, 1008, 0, 'Aqua Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(936, 'pura_mdl5*1', '17', 11, 3, 0, 1, 1009, 0, 'Aqua Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(937, 'chair_basic*1', '17', 12, 3, 0, 1, 1010, 0, 'Aqua Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(938, 'pura_mdl1*2', '17', 7, 3, 0, 1, 1011, 0, 'Pink Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(939, 'pura_mdl1*3', '17', 7, 3, 0, 1, 1012, 0, 'Black Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(940, 'pura_mdl1*4', '17', 7, 3, 0, 1, 1013, 0, 'White Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(941, 'pura_mdl1*5', '17', 7, 3, 0, 1, 1014, 0, 'Beige pura module 1', '', 0, NULL, NULL),
-	(942, 'pura_mdl1*6', '17', 7, 3, 0, 1, 1015, 0, 'Blue Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(943, 'pura_mdl1*7', '17', 7, 3, 0, 1, 1016, 0, 'Green Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(944, 'pura_mdl1*8', '17', 7, 3, 0, 1, 1017, 0, 'Yellow pura module 1', '', 0, NULL, NULL),
-	(945, 'pura_mdl1*9', '17', 7, 3, 0, 1, 1018, 0, 'Red Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
-	(946, 'pura_mdl2*2', '17', 8, 3, 0, 1, 1019, 0, 'Pink Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(947, 'pura_mdl2*3', '17', 8, 3, 0, 1, 1020, 0, 'Black Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(948, 'pura_mdl2*4', '17', 8, 3, 0, 1, 1021, 0, 'White Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(949, 'pura_mdl2*5', '17', 8, 3, 0, 1, 1022, 0, 'Beige pura module 2', '', 0, NULL, NULL),
-	(950, 'pura_mdl2*6', '17', 8, 3, 0, 1, 1023, 0, 'Blue Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(951, 'pura_mdl2*7', '17', 8, 3, 0, 1, 1024, 0, 'Green Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(952, 'pura_mdl2*8', '17', 8, 3, 0, 1, 1025, 0, 'Yellow pura module 2', '', 0, NULL, NULL),
-	(953, 'pura_mdl2*9', '17', 8, 3, 0, 1, 1026, 0, 'Red Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
-	(954, 'pura_mdl3*2', '17', 9, 3, 0, 1, 1027, 0, 'Pink Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(955, 'pura_mdl3*3', '17', 9, 3, 0, 1, 1028, 0, 'Black Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(956, 'pura_mdl3*4', '17', 9, 3, 0, 1, 1029, 0, 'White Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(957, 'pura_mdl3*5', '17', 9, 3, 0, 1, 1030, 0, 'Beige pura module 3', '', 0, NULL, NULL),
-	(958, 'pura_mdl3*6', '17', 9, 3, 0, 1, 1031, 0, 'Blue Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(959, 'pura_mdl3*7', '17', 9, 3, 0, 1, 1032, 0, 'Green Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(960, 'pura_mdl3*8', '17', 9, 3, 0, 1, 1033, 0, 'Yellow pura module 3', '', 0, NULL, NULL),
-	(961, 'pura_mdl3*9', '17', 9, 3, 0, 1, 1034, 0, 'Red Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
-	(962, 'pura_mdl4*2', '17', 10, 3, 0, 1, 1035, 0, 'Pink Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(963, 'pura_mdl4*3', '17', 10, 3, 0, 1, 1036, 0, 'Black Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(964, 'pura_mdl4*4', '17', 10, 3, 0, 1, 1037, 0, 'White Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(965, 'pura_mdl4*5', '17', 10, 3, 0, 1, 1038, 0, 'Beige pura module 4', '', 0, NULL, NULL),
-	(966, 'pura_mdl4*6', '17', 10, 3, 0, 1, 1039, 0, 'Blue Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(967, 'pura_mdl4*7', '17', 10, 3, 0, 1, 1040, 0, 'Green Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(968, 'pura_mdl4*8', '17', 10, 3, 0, 1, 1041, 0, 'Yellow pura module 4', '', 0, NULL, NULL),
-	(969, 'pura_mdl4*9', '17', 10, 3, 0, 1, 1042, 0, 'Red Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
-	(970, 'pura_mdl5*2', '17', 11, 3, 0, 1, 1043, 0, 'Pink Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(971, 'pura_mdl5*3', '17', 11, 3, 0, 1, 1044, 0, 'Black Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(972, 'pura_mdl5*4', '17', 11, 3, 0, 1, 1045, 0, 'White Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(973, 'pura_mdl5*5', '17', 11, 3, 0, 1, 1046, 0, 'Beige pura module 5', '', 0, NULL, NULL),
-	(974, 'pura_mdl5*6', '17', 11, 3, 0, 1, 1047, 0, 'Blue Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(975, 'pura_mdl5*7', '17', 11, 3, 0, 1, 1048, 0, 'Green Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(976, 'pura_mdl5*8', '17', 11, 3, 0, 1, 1049, 0, 'Yellow Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(977, 'pura_mdl5*9', '17', 11, 3, 0, 1, 1050, 0, 'Red Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
-	(978, 'chair_basic*2', '17', 12, 3, 0, 1, 1051, 0, 'Pink Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(979, 'chair_basic*3', '17', 12, 3, 0, 1, 1052, 0, 'Black Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(980, 'chair_basic*4', '17', 12, 3, 0, 1, 1053, 0, 'White Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(981, 'chair_basic*5', '17', 12, 3, 0, 1, 1054, 0, 'Beige Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(982, 'chair_basic*6', '17', 12, 3, 0, 1, 1055, 0, 'Blue Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(983, 'chair_basic*7', '17', 12, 3, 0, 1, 1056, 0, 'Green Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(984, 'chair_basic*8', '17', 12, 3, 0, 1, 1057, 0, 'Yellow Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
-	(985, 'chair_basic*9', '17', 12, 3, 0, 1, 1058, 0, 'Red Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(932, 'pura_mdl1*1', '17', 7, 3, 1, 1, 1005, 0, 'Aqua Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(933, 'pura_mdl2*1', '17', 8, 3, 1, 1, 1006, 0, 'Aqua Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(934, 'pura_mdl3*1', '17', 9, 3, 1, 1, 1007, 0, 'Aqua Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(935, 'pura_mdl4*1', '17', 10, 3, 1, 1, 1008, 0, 'Aqua Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(936, 'pura_mdl5*1', '17', 11, 3, 1, 1, 1009, 0, 'Aqua Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(937, 'chair_basic*1', '17', 12, 3, 1, 1, 1010, 0, 'Aqua Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(938, 'pura_mdl1*2', '17', 7, 3, 1, 1, 1011, 0, 'Pink Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(939, 'pura_mdl1*3', '17', 7, 3, 1, 1, 1012, 0, 'Black Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(940, 'pura_mdl1*4', '17', 7, 3, 1, 1, 1013, 0, 'White Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(941, 'pura_mdl1*5', '17', 7, 3, 1, 1, 1014, 0, 'Beige pura module 1', '', 0, NULL, NULL),
+	(942, 'pura_mdl1*6', '17', 7, 3, 1, 1, 1015, 0, 'Blue Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(943, 'pura_mdl1*7', '17', 7, 3, 1, 1, 1016, 0, 'Green Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(944, 'pura_mdl1*8', '17', 7, 3, 1, 1, 1017, 0, 'Yellow pura module 1', '', 0, NULL, NULL),
+	(945, 'pura_mdl1*9', '17', 7, 3, 1, 1, 1018, 0, 'Red Pura Module 1', 'Any way you like it!', 0, NULL, NULL),
+	(946, 'pura_mdl2*2', '17', 8, 3, 1, 1, 1019, 0, 'Pink Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(947, 'pura_mdl2*3', '17', 8, 3, 1, 1, 1020, 0, 'Black Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(948, 'pura_mdl2*4', '17', 8, 3, 1, 1, 1021, 0, 'White Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(949, 'pura_mdl2*5', '17', 8, 3, 1, 1, 1022, 0, 'Beige pura module 2', '', 0, NULL, NULL),
+	(950, 'pura_mdl2*6', '17', 8, 3, 1, 1, 1023, 0, 'Blue Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(951, 'pura_mdl2*7', '17', 8, 3, 1, 1, 1024, 0, 'Green Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(952, 'pura_mdl2*8', '17', 8, 3, 1, 1, 1025, 0, 'Yellow pura module 2', '', 0, NULL, NULL),
+	(953, 'pura_mdl2*9', '17', 8, 3, 1, 1, 1026, 0, 'Red Pura Module 2', 'Any way you like it!', 0, NULL, NULL),
+	(954, 'pura_mdl3*2', '17', 9, 3, 1, 1, 1027, 0, 'Pink Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(955, 'pura_mdl3*3', '17', 9, 3, 1, 1, 1028, 0, 'Black Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(956, 'pura_mdl3*4', '17', 9, 3, 1, 1, 1029, 0, 'White Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(957, 'pura_mdl3*5', '17', 9, 3, 1, 1, 1030, 0, 'Beige pura module 3', '', 0, NULL, NULL),
+	(958, 'pura_mdl3*6', '17', 9, 3, 1, 1, 1031, 0, 'Blue Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(959, 'pura_mdl3*7', '17', 9, 3, 1, 1, 1032, 0, 'Green Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(960, 'pura_mdl3*8', '17', 9, 3, 1, 1, 1033, 0, 'Yellow pura module 3', '', 0, NULL, NULL),
+	(961, 'pura_mdl3*9', '17', 9, 3, 1, 1, 1034, 0, 'Red Pura Module 3', 'Any way you like it!', 0, NULL, NULL),
+	(962, 'pura_mdl4*2', '17', 10, 3, 1, 1, 1035, 0, 'Pink Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(963, 'pura_mdl4*3', '17', 10, 3, 1, 1, 1036, 0, 'Black Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(964, 'pura_mdl4*4', '17', 10, 3, 1, 1, 1037, 0, 'White Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(965, 'pura_mdl4*5', '17', 10, 3, 1, 1, 1038, 0, 'Beige pura module 4', '', 0, NULL, NULL),
+	(966, 'pura_mdl4*6', '17', 10, 3, 1, 1, 1039, 0, 'Blue Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(967, 'pura_mdl4*7', '17', 10, 3, 1, 1, 1040, 0, 'Green Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(968, 'pura_mdl4*8', '17', 10, 3, 1, 1, 1041, 0, 'Yellow pura module 4', '', 0, NULL, NULL),
+	(969, 'pura_mdl4*9', '17', 10, 3, 1, 1, 1042, 0, 'Red Pura Module 4', 'Any way you like it!', 0, NULL, NULL),
+	(970, 'pura_mdl5*2', '17', 11, 3, 1, 1, 1043, 0, 'Pink Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(971, 'pura_mdl5*3', '17', 11, 3, 1, 1, 1044, 0, 'Black Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(972, 'pura_mdl5*4', '17', 11, 3, 1, 1, 1045, 0, 'White Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(973, 'pura_mdl5*5', '17', 11, 3, 1, 1, 1046, 0, 'Beige pura module 5', '', 0, NULL, NULL),
+	(974, 'pura_mdl5*6', '17', 11, 3, 1, 1, 1047, 0, 'Blue Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(975, 'pura_mdl5*7', '17', 11, 3, 1, 1, 1048, 0, 'Green Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(976, 'pura_mdl5*8', '17', 11, 3, 1, 1, 1049, 0, 'Yellow Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(977, 'pura_mdl5*9', '17', 11, 3, 1, 1, 1050, 0, 'Red Pura Module 5', 'Any way you like it!', 0, NULL, NULL),
+	(978, 'chair_basic*2', '17', 12, 3, 1, 1, 1051, 0, 'Pink Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(979, 'chair_basic*3', '17', 12, 3, 1, 1, 1052, 0, 'Black Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(980, 'chair_basic*4', '17', 12, 3, 1, 1, 1053, 0, 'White Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(981, 'chair_basic*5', '17', 12, 3, 1, 1, 1054, 0, 'Beige Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(982, 'chair_basic*6', '17', 12, 3, 1, 1, 1055, 0, 'Blue Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(983, 'chair_basic*7', '17', 12, 3, 1, 1, 1056, 0, 'Green Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(984, 'chair_basic*8', '17', 12, 3, 1, 1, 1057, 0, 'Yellow Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
+	(985, 'chair_basic*9', '17', 12, 3, 1, 1, 1058, 0, 'Red Pura Egg Chair', 'It\'s a cracking design!', 0, NULL, NULL),
 	(986, 'hcc_chair', '64', 1, 8, 0, 1, 1060, 0, 'Trendy Stool', 'Shiny varnished finish', 0, NULL, NULL),
 	(987, 'hcc_shelf', '64', 6, 8, 0, 1, 1061, 0, 'Bookshelf', 'Your own Habbo archives', 0, NULL, NULL),
 	(988, 'hcc_stool', '64', 2, 8, 0, 1, 1062, 0, 'Antique Stool', 'For larger gatherings', 0, NULL, NULL),
@@ -963,7 +965,7 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(1305, 'poster 2003', '24', 35, 3, 0, 1, 251, 2003, 'Dodgy Geezer', 'Would you trust this man?', 0, NULL, NULL),
 	(1306, 'poster 2004', '24', 35, 3, 0, 1, 251, 2004, 'Rasta Poster', 'irie!', 0, NULL, NULL),
 	(1307, 'poster 2007', '24', 35, 3, 0, 1, 251, 2007, 'The Father Of Habbo', 'The legendary founder of the Hotel', 0, NULL, NULL),
-	(1338, 'fortune', '19', 5, 10, 0, 1, 1403, 0, 'Crystal Ball', 'Gaze into the future', 0, NULL, NULL),
+	(1338, 'fortune', '19', 5, 10, 1, 1, 1403, 0, 'Crystal Ball', 'Gaze into the future', 0, NULL, NULL),
 	(1339, 'sound_machine', '84', 1, 8, 0, 1, 232, 0, 'Sound Machine', 'Creating fancy sounds', 0, NULL, NULL),
 	(1340, 'sound_set_65', '88', 9, 3, 0, 1, 1404, 0, 'Tiki anthems', 'Tiki drums go boom!', 0, NULL, NULL),
 	(1341, 'sound_set_66', '88', 9, 3, 0, 1, 1405, 0, 'Tiki Trax', 'Spin some island tunes', 0, NULL, NULL),
@@ -974,9 +976,8 @@ INSERT INTO `catalogue_items` (`id`, `sale_code`, `page_id`, `order_id`, `price`
 	(1348, 'rclr_chair', '92', 9, 1, 0, 1, 1414, 0, 'Palm Chair', 'Watch out for coconuts', 0, NULL, NULL),
 	(1349, 'rclr_garden', '92', 9, 1, 0, 1, 1415, 0, 'Water Garden', 'Self watering', 0, NULL, NULL),
 	(1350, 'rclr_sofa', '92', 9, 1, 0, 1, 1416, 0, 'Polar Sofa', 'Snuggle up together', 0, NULL, NULL);
-/*!40000 ALTER TABLE `catalogue_items` ENABLE KEYS */;
 
--- Dumping structure for table kepler.catalogue_packages
+-- Dumping structure for table finlay.catalogue_packages
 CREATE TABLE IF NOT EXISTS `catalogue_packages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `salecode` varchar(255) DEFAULT NULL,
@@ -984,11 +985,10 @@ CREATE TABLE IF NOT EXISTS `catalogue_packages` (
   `special_sprite_id` int(11) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.catalogue_packages: ~18 rows (approximately)
-/*!40000 ALTER TABLE `catalogue_packages` DISABLE KEYS */;
-INSERT INTO `catalogue_packages` (`id`, `salecode`, `definition_id`, `special_sprite_id`, `amount`) VALUES
+-- Dumping data for table finlay.catalogue_packages: ~18 rows (approximately)
+REPLACE INTO `catalogue_packages` (`id`, `salecode`, `definition_id`, `special_sprite_id`, `amount`) VALUES
 	(1, 'a0 deal102', 184, 0, 5),
 	(2, 'a0 deal104', 184, 0, 3),
 	(3, 'a0 deal105', 180, 0, 5),
@@ -1007,9 +1007,8 @@ INSERT INTO `catalogue_packages` (`id`, `salecode`, `definition_id`, `special_sp
 	(16, 'sound_machine_deal', 239, 0, 1),
 	(17, 'deal_hcrollers', 226, 0, 5),
 	(18, 'deal_throne', 107, 0, 10);
-/*!40000 ALTER TABLE `catalogue_packages` ENABLE KEYS */;
 
--- Dumping structure for table kepler.catalogue_pages
+-- Dumping structure for table finlay.catalogue_pages
 CREATE TABLE IF NOT EXISTS `catalogue_pages` (
   `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -1027,21 +1026,20 @@ CREATE TABLE IF NOT EXISTS `catalogue_pages` (
   `label_extra_s` varchar(255) DEFAULT NULL,
   `label_extra_t` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.catalogue_pages: ~60 rows (approximately)
-/*!40000 ALTER TABLE `catalogue_pages` DISABLE KEYS */;
-INSERT INTO `catalogue_pages` (`id`, `order_id`, `min_role`, `index_visible`, `is_club_only`, `name_index`, `link_list`, `name`, `layout`, `image_headline`, `image_teasers`, `body`, `label_pick`, `label_extra_s`, `label_extra_t`) VALUES
+-- Dumping data for table finlay.catalogue_pages: ~60 rows (approximately)
+REPLACE INTO `catalogue_pages` (`id`, `order_id`, `min_role`, `index_visible`, `is_club_only`, `name_index`, `link_list`, `name`, `layout`, `image_headline`, `image_teasers`, `body`, `label_pick`, `label_extra_s`, `label_extra_t`) VALUES
 	(1, 1, 1, 1, 0, 'Frontpage', '', 'Frontpage', 'ctlg_frontpage2', 'catal_fp_header', 'catal_fp_pic4,catal_fp_pic5,', 'Welcome to the Hotel Catalogue. It\'s packed full of fab things for your room - there\'s something for everyone! Browse the ranges by clicking the tabs on the right.<br><br>Some ranges are seasonal, so check back regularly for new items.<br><br>We regularly', NULL, 'Home sweet home!', '1:You need Credits to buy Furni for your room, click the Purse at the bottom of your screen for more information about Credits.'),
 	(2, 2, 1, 1, 0, 'Rare', '', 'Rare', 'ctlg_productpage1', 'catalog_rares_headline1', '', 'Okay this thing is fucking epic!\rEnjoy it while it lasts!', NULL, NULL, NULL),
 	(3, 3, 1, 1, 0, 'Spaces', '', 'Spaces', 'ctlg_spaces', 'catalog_spaces_headline1', '', 'Floors, wallpapers, landscapes - get a groovy combination to your room. Use our virtual room preview below to test out the combinations before you buy. Select the design and color you like and click Buy.', NULL, NULL, '1:Wall\r\n2:Floor\r\n3:Pattern\r\n4:Colour\r\n5:Pattern\r\n6:Colour\r\n7:Preview'),
-	(4, 27, 1, 1, 0, 'Habbo Exchange', '', 'Habbo Exchange', 'ctlg_layout2', 'catalog_bank_headline1', 'catalog_bank_teaser,', 'The Habbo Exchange is where you can convert your Habbo Credits into a tradable currency. You can use this tradable currency to exchange Habbo Credits for Furni!', 'Click on the item you want for more information', '1:Refundable      goods!', NULL),
+	(4, 27, 10, 1, 0, 'Habbo Exchange', '', 'Habbo Exchange', 'ctlg_layout2', 'catalog_bank_headline1', 'catalog_bank_teaser,', 'The Habbo Exchange is where you can convert your Habbo Credits into a tradable currency. You can use this tradable currency to exchange Habbo Credits for Furni!', 'Click on the item you want for more information', '1:Refundable      goods!', NULL),
 	(5, 22, 1, 1, 0, 'Rollers', '', 'Rollers', 'ctlg_layout2', 'catalog_roller_headline1', '', 'Move your imagination, while you move your Habbo!  Perfect for mazes, games, for keeping your queue moving or making your pet go round in circles for hours.  Available in multi-packs ? the more you buy the cheaper the Roller! Pink Rollers out now!', 'Click on a Roller to see more information!', 'You can fit 30 Rollers in a user flat!', NULL),
 	(6, 6, 1, 1, 0, 'Teleporters', '', 'Teleporters', 'ctlg_productpage3', 'catalog_doors_headline1', 'catalog_door_a,catalog_door_c,catalog_door_b,', 'Beam your user from one room to another with one of our cunningly disguised, space age teleports. Now you can link any two rooms together! Teleports are sold in pairs, so if you trade for them, check you\'re getting a linked pair.', 'Click on the item you want for more information', 'Beam!', NULL),
 	(7, 18, 1, 1, 0, 'Pets', '', 'Pets', 'ctlg_pets', 'catalog_pet_headline1', 'catalog_pets_teaser1,', 'Fluff and whiskers, meows and woofs! You\'\'re about to enter the world of small creatures with furry features. Find a new friend from our ever-changing selection. From faithful servants to playful playmates - here\'s where you\'\'ll find them all.', 'Find your own pet!', NULL, '1:Give name:'),
 	(8, 19, 1, 1, 0, 'Pet Accessories', '', 'Pet Accessories', 'ctlg_layout2', 'catalog_pet_headline2', 'ctlg_pet_teaser1,', 'You\'\'ll need to take care of your pet to keep it happy and healthy. This section of the Catalogue has EVERYTHING you\'ll need to satisfy your pet\'s needs.', 'Click on the item you want for more information', '2:You\'ll have to share it!', NULL),
 	(9, 6, 1, 1, 0, 'Area', '', 'Area', 'ctlg_layout2', 'catalog_area_headline1', 'catalog_area_teaser1,', 'Introducing the Area Collection...  Clean, chunky lines set this collection apart as a preserve of the down-to-earth person. It\'s beautiful in its simplicity, and welcoming to everyone.', 'Click on the item you want for more information', '2: Beautiful in it\'s simplicity!', NULL),
-	(10, 10, 1, 1, 0, 'Gothic', '', 'Gothic', 'ctlg_layout2', 'catalog_gothic_headline1', 'catalog_gothic_teaser1,', 'The Gothic section is full of medieval looking items. Create your own Gothic castle!', 'Click on the item you want for more information', NULL, NULL),
+	(10, 10, 10, 1, 0, 'Gothic', '', 'Gothic', 'ctlg_layout2', 'catalog_gothic_headline1', 'catalog_gothic_teaser1,', 'The Gothic section is full of medieval looking items. Create your own Gothic castle!', 'Click on the item you want for more information', NULL, NULL),
 	(11, 11, 1, 0, 0, 'Soundmachines', '', 'Trax', 'ctlg_soundmachine', 'catalog_djshop_headline1', 'catalog_djshop_teaser1,', 'Bring sound to your room! Purchase a sound machine plus some sample packs and create your own songs to play in your flat!', 'Click on the item you want for more information', NULL, NULL),
 	(12, 7, 1, 1, 0, 'Candy', '', 'Candy', 'ctlg_layout2', 'catalog_candy_headline1', 'catalog_candy_teaser1,', 'Candy combines the cool, clean lines of the Mode collection with a softer, more soothing style. It\'\'s urban sharpness with a hint of the feminine.', 'Click on the item you want for more information', '2: Relax! It\'s faux-fur.', NULL),
 	(13, 13, 1, 1, 0, 'Asian', '', 'Asian', 'ctlg_layout2', 'catalog_asian_headline1', 'catalog_asian_teaser1,', 'Introducing the Asian collection... These handcrafted items are the result of years of child slavery, some mixture of Ying and Yang and a mass-shipping from China. These authentic items fit in every oriental themed user flat. Made in China: fo\' real nigga', 'Click on the item you want for more information', NULL, NULL),
@@ -1076,34 +1074,32 @@ INSERT INTO `catalogue_pages` (`id`, `order_id`, `min_role`, `index_visible`, `i
 	(42, 21, 1, 0, 0, 'Camera2', '', 'Camera', 'ctlg_camera2', 'catalog_camera_headline1', 'campic_help,', 'CAMERA FUNCTIONS<br><br>1. Press this button to take a photo.<br>2. Photo cancel - for when you\'ve chopped off your friend\'s head!<br>3. Zoom in and out.<br>4. Photo counter - shows how much film you have left<br>5. Caption Box - write your caption before saving the photo.<br>6. Save - this moves the photo to your giant.<br>You can give photos to your friends, or put them on the wall like posters.', NULL, NULL, NULL),
 	(43, 114, 5, 1, 0, 'Inflatable Chairs', '', 'Inflatable Chairs', 'ctlg_layout2', 'catalog_rares_headline1', '', 'Yet another rares page.', 'Click on the item you want for more information', NULL, NULL),
 	(44, 115, 5, 1, 0, 'Rares Mixed', '', 'Rares Mixed', 'ctlg_layout2', 'catalog_rares_headline1', '', 'Yet another rares page.', 'Click on the item you want for more information', NULL, NULL),
-	(45, 27, 1, 1, 0, 'Executive', '', 'Executive', 'ctlg_layout2', 'catalog_exe_headline1', 'catalog_exe_teaser', 'The Executive Furni is ideal for creating a sophisticated working environment, whether it be an office, a mafia headquarters or study!', 'Click on the item you want for more information', '', ''),
-	(46, 28, 1, 1, 0, 'Alhambra', '', 'Alhambra', 'ctlg_layout2', 'catalog_alh_headline2', 'catalog_alh_teaser2,', 'The Palace of Alhambra has appeared and with it this exotic and beautifully crafted range of Arabian Furni. Luxury seating and gourmet food combine to make your room sparkle with riches.', 'Click on the item you want for more information', 's:2:Get your Alhambrian goodies now!', ''),
+	(45, 27, 10, 1, 0, 'Executive', '', 'Executive', 'ctlg_layout2', 'catalog_exe_headline1', 'catalog_exe_teaser', 'The Executive Furni is ideal for creating a sophisticated working environment, whether it be an office, a mafia headquarters or study!', 'Click on the item you want for more information', '', ''),
+	(46, 28, 10, 1, 0, 'Alhambra', '', 'Alhambra', 'ctlg_layout2', 'catalog_alh_headline2', 'catalog_alh_teaser2,', 'The Palace of Alhambra has appeared and with it this exotic and beautifully crafted range of Arabian Furni. Luxury seating and gourmet food combine to make your room sparkle with riches.', 'Click on the item you want for more information', 's:2:Get your Alhambrian goodies now!', ''),
 	(60, 35, 1, 1, 0, 'Habbo Club', 'Club Info', 'Habbo Club', 'ctlg_club1', 'catalog_club_headline1', 'clubcat_pic', '', '', '', '1:Welcome to Habbo Club - the members only club that all the best Habbos belong to!\r\n2:Every member of Habbo Club gets priority access to the hotel. So, if the hotel\'s full up, you\'ll get to the front of the queue automatically - no waiting around! And you\'ll get exclusive clothes, hair colours, furni, special guest room layouts and more besides. Normal Habbos will not have any of these.\r\n3:How do I join? Use the Navigator to go to \'Hotel View\' and click on the Habbo Club icon. Habbo Club costs 20 Credits a month. We\'ll remind you when your membership is about to run out.\r\n4:Well, what are you waiting for? Join Habbo Club today!'),
 	(61, 5, 1, 0, 0, 'Club Info', '', 'Club Info', 'ctlg_club2', 'catalog_club_headline1', 'club_pos,club_neg', '', '', '', '1:What happens when my Habbo Club runs out?\r\n2:If your Habbo Club runs out, you WILL be able to keep any rooms you made with a Club layout and the Habbo Club Furni is yours to keep.\r\n3:If your Habbo Club runs out you WON\'T be able to wander around with a cool HC badge, the funky clothes and your hair will vanish from your Habbo, you won\'t be able to do chose HC rooms layouts in the Room-O-Matics, you\'ll receive no new HC Furni and worst all, you won\'t be able to jump the queue if the Hotel\'s Full!\r\n4:Stay in Habbo Club for more than a year and you\'ll get a special sparkly BADGE!'),
 	(64, 4, 1, 1, 1, 'Club Shop', '', 'Club Shop', 'ctlg_layout2', 'catalog_club_headline1', 'catalog_hc_teaser', 'NEW Habbo Club Furni range. Allow these elegant delights to make your room sophisticated and humble. They look great placed with your monthly gifts!', 'Click on the item you want for more information', '1:For Habbo Club members only!', ''),
-	(68, 14, 1, 1, 0, 'Romantique', '', 'Romantique', 'ctlg_layout2', 'catalog_romantique_headline1', 'catalog_romantique_teaser1', 'The Romantique range features Grand Pianos, old antique lamps and tables. It is the ideal range for setting a warm and loving mood in your room. Spruce up your room and invite that special someone over. Now featuring the extra special COLOUR edition.', 'Click on the item you want for more information', NULL, ''),
-	(81, 8, 1, 1, 0, 'Grunge', '', 'Grunge', 'ctlg_layout2', 'catalog_gru_headline1', 'catalog_gru_teaser', 'The Grunge range will get your bedroom looking just the way you like it - organised, neat and tidy!', 'Click on the item you want for more information', NULL, ''),
-	(84, 29, 1, 0, 0, 'How to make music?', '', 'How to make music?', 'ctlg_soundmachine', 'catalog_djshop_headline1', 'catalog_djshop_teaser1', 'You must own a trax machine and at least one trax pax. Place the trax machine in your room and the trax pax in your hand. Double click the trax machine, click "Trax editor" and start editing music. When ready, save, select the tune, turn on the trax machine and enjoy.', 'Cool, my own music!', NULL, ''),
-	(85, 28, 1, 1, 0, 'Ambient Trax', '', 'Ambient Trax', 'ctlg_soundmachine', 'catalog_trx_header1', 'catalog_trx_teaser1', 'Welcome to the Ambient Trax Store! With groovy beats and chilled out melodies, this is the section for some cool and relaxing tunes.', '', NULL, ''),
-	(86, 29, 1, 1, 0, 'Dance Trax', '', 'Dance Trax', 'ctlg_soundmachine', 'catalog_trx_header2', 'catalog_trx_teaser2', 'Welcome to the Dance Trax Store! With funky beats and catchy melodies, this is the section for every clubber  to indulge in.', '', NULL, ''),
-	(87, 30, 1, 1, 0, 'Rock Trax', '', 'Rock Trax', 'ctlg_soundmachine', 'catalog_trx_header3', 'catalog_trx_teaser3', 'Welcome to the Rock Trax Store! With heavy beats and rockin\' riffs, this is the section for every rock fan to experiment with.', '', NULL, ''),
-	(88, 31, 1, 1, 0, 'SFX Trax', '', 'SFX Trax', 'ctlg_soundmachine', 'catalog_trx_header4', 'catalog_trx_teaser4', 'Welcome to the SFX Trax Store! With crazy sounds and weird noises, this is the section for every creative room builder  to indulge in.', '', NULL, ''),
-	(89, 32, 1, 1, 0, 'Urban Trax', '', 'Urban Trax', 'ctlg_soundmachine', 'catalog_trx_header5', 'catalog_trx_teaser5', 'Welcome to the Urban Trax Store! With hip hop beats and RnB vocals, this is the section for every city bopper  to indulge in.', '', NULL, ''),
+	(68, 14, 10, 1, 0, 'Romantique', '', 'Romantique', 'ctlg_layout2', 'catalog_romantique_headline1', 'catalog_romantique_teaser1', 'The Romantique range features Grand Pianos, old antique lamps and tables. It is the ideal range for setting a warm and loving mood in your room. Spruce up your room and invite that special someone over. Now featuring the extra special COLOUR edition.', 'Click on the item you want for more information', NULL, ''),
+	(81, 8, 10, 1, 0, 'Grunge', '', 'Grunge', 'ctlg_layout2', 'catalog_gru_headline1', 'catalog_gru_teaser', 'The Grunge range will get your bedroom looking just the way you like it - organised, neat and tidy!', 'Click on the item you want for more information', NULL, ''),
+	(84, 29, 10, 0, 0, 'How to make music?', '', 'How to make music?', 'ctlg_soundmachine', 'catalog_djshop_headline1', 'catalog_djshop_teaser1', 'You must own a trax machine and at least one trax pax. Place the trax machine in your room and the trax pax in your hand. Double click the trax machine, click "Trax editor" and start editing music. When ready, save, select the tune, turn on the trax machine and enjoy.', 'Cool, my own music!', NULL, ''),
+	(85, 28, 10, 1, 0, 'Ambient Trax', '', 'Ambient Trax', 'ctlg_soundmachine', 'catalog_trx_header1', 'catalog_trx_teaser1', 'Welcome to the Ambient Trax Store! With groovy beats and chilled out melodies, this is the section for some cool and relaxing tunes.', '', NULL, ''),
+	(86, 29, 10, 1, 0, 'Dance Trax', '', 'Dance Trax', 'ctlg_soundmachine', 'catalog_trx_header2', 'catalog_trx_teaser2', 'Welcome to the Dance Trax Store! With funky beats and catchy melodies, this is the section for every clubber  to indulge in.', '', NULL, ''),
+	(87, 30, 10, 1, 0, 'Rock Trax', '', 'Rock Trax', 'ctlg_soundmachine', 'catalog_trx_header3', 'catalog_trx_teaser3', 'Welcome to the Rock Trax Store! With heavy beats and rockin\' riffs, this is the section for every rock fan to experiment with.', '', NULL, ''),
+	(88, 31, 10, 1, 0, 'SFX Trax', '', 'SFX Trax', 'ctlg_soundmachine', 'catalog_trx_header4', 'catalog_trx_teaser4', 'Welcome to the SFX Trax Store! With crazy sounds and weird noises, this is the section for every creative room builder  to indulge in.', '', NULL, ''),
+	(89, 32, 10, 1, 0, 'Urban Trax', '', 'Urban Trax', 'ctlg_soundmachine', 'catalog_trx_header5', 'catalog_trx_teaser5', 'Welcome to the Urban Trax Store! With hip hop beats and RnB vocals, this is the section for every city bopper  to indulge in.', '', NULL, ''),
 	(90, 34, 1, 1, 0, 'Presents', '', 'Presents', 'ctlg_presents', 'catalog_gifts_headline1', 'catalog_presents_teaser1,catalog_presents_teaser2', 'Show your Habbo friends just how much you care and send them a gift from the Habbo Catalogue.  ANY Catalogue item can be sent as a gift to ANY Habbo, all you need is their Habbo name!', '', NULL, '1:Buying an item as a gift couldn\'t be simpler...  <br><br>Buy an item from the Catalogue in the normal way, but tick \'buy as a gift\'. Tell us which Habbo you want to give the gift to and we\'\'ll gift wrap it and deliver it straight to their hand.'),
-	(91, 13, 1, 1, 0, 'Recycler', '', 'Recycler', 'ctlg_recycler', 'catalog_recycler_headline1', '', '', NULL, NULL, NULL),
-	(92, 116, 5, 1, 0, 'Recycler Furni', '', 'Recycler Furni', 'ctlg_layout2', 'catalog_rares_headline1', '', 'Yet another special page.', 'Click on the item you want for more information', NULL, NULL);
-/*!40000 ALTER TABLE `catalogue_pages` ENABLE KEYS */;
+	(91, 13, 10, 1, 0, 'Recycler', '', 'Recycler', 'ctlg_recycler', 'catalog_recycler_headline1', '', '', NULL, NULL, NULL),
+	(92, 116, 10, 1, 0, 'Recycler Furni', '', 'Recycler Furni', 'ctlg_layout2', 'catalog_rares_headline1', '', 'Yet another special page.', 'Click on the item you want for more information', NULL, NULL);
 
--- Dumping structure for table kepler.external_texts
+-- Dumping structure for table finlay.external_texts
 CREATE TABLE IF NOT EXISTS `external_texts` (
   `entry` varchar(255) NOT NULL,
   `text` text NOT NULL,
   UNIQUE KEY `entry` (`entry`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.external_texts: ~31 rows (approximately)
-/*!40000 ALTER TABLE `external_texts` DISABLE KEYS */;
-INSERT INTO `external_texts` (`entry`, `text`) VALUES
+-- Dumping data for table finlay.external_texts: ~31 rows (approximately)
+REPLACE INTO `external_texts` (`entry`, `text`) VALUES
 	('handitem1', 'Tea'),
 	('handitem10', 'Latte'),
 	('handitem11', 'Mocha'),
@@ -1135,9 +1131,8 @@ INSERT INTO `external_texts` (`entry`, `text`) VALUES
 	('roomdimmer_furni_limit', 'You can only have one roomdimmer per room'),
 	('room_sound_furni_limit', 'You can only place one sound furni per room'),
 	('successfully_purchase_gift_for', 'Successfully purchased gift for user %user%!');
-/*!40000 ALTER TABLE `external_texts` ENABLE KEYS */;
 
--- Dumping structure for table kepler.games_maps
+-- Dumping structure for table finlay.games_maps
 CREATE TABLE IF NOT EXISTS `games_maps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `game_type` enum('battleball','snowstorm') NOT NULL DEFAULT 'battleball',
@@ -1145,19 +1140,17 @@ CREATE TABLE IF NOT EXISTS `games_maps` (
   `heightmap` mediumtext NOT NULL,
   `tile_map` mediumtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.games_maps: ~5 rows (approximately)
-/*!40000 ALTER TABLE `games_maps` DISABLE KEYS */;
-INSERT INTO `games_maps` (`id`, `game_type`, `map_id`, `heightmap`, `tile_map`) VALUES
+-- Dumping data for table finlay.games_maps: ~5 rows (approximately)
+REPLACE INTO `games_maps` (`id`, `game_type`, `map_id`, `heightmap`, `tile_map`) VALUES
 	(1, 'battleball', '5', 'xxxx000000000000000xxxx|xxxx000000000000000xxxx|xxxx000000000000000xxxx|xxxx000000000000000xxxx|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|00000000000000000000000|xxxx000000000000000xxxx|xxxx000000000000000xxxx|xxxx000000000000000xxxx|xxxx000000000000000xxxx|', '00001111111111111110000|00001111111111111110000|00001111111111111110000|00001111111111111110000|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|11111111111111111111111|00001111111111111110000|00001111111111111110000|00001111111111111110000|00001111111111111110000|'),
 	(2, 'battleball', '3', '0000000x000x0000xxxxxxxxxxxxxxxxx|0xx00x0x0x0000000111000xxxxxxxxxx|0xx00x0x0x00000001110000xxxxxxxxx|0000xx000xxx0000xxxxxx000xxxxxxxx|000xxxxxxxxxxxxxxxxxxxx000xxxxxxx|0xxxxxxxxxxxxxxxxxxxxxxx000xxxxxx|0000xxxxxxxxxxxxxxxxxxxxx000xxxxx|xxx0xxx111111111111111xxx0x0xxxxx|0000xxx111111111111111xxx0x0x0xxx|0xxxxxx111111111111111xxx0x0x0xxx|000xxxx1111111111111111000x00000x|x00xxxx1111111111111111000x0x0xxx|0000xxx111112222211111xxxxxxx0000|0000xxx111112222211111xxx000xxxx0|0000xxx111112222211111xxx000000x0|0000xxx111112222211111xxx000xx0x0|x00xxxx111112222211111xxxxxxx0000|x11xxxx11111111111111110000000xxx|x11xxxx11111111111111110000000xxx|x11xxxx111111111111111xxx0xxxxxxx|x00xxxx111111111111111xxx000xxxxx|x00xxxx111111111111111xxxxxxxxxxx|x000xxxxxx11xxxxx11xxxxxxxxxxxxxx|xx000xxxxx00xxxxx00xxxxxxxxxxxxxx|xxx000xxxx00xxxxx00xxxxxxxxxxxxxx|xxxx00000000x000x0000xxxxxxxxxxxx|xxxxx00xxxxxx000x00x0xxxxxxxxxxxx|xxxxxx000000x000x00x0xxxxxxxxxxxx|xxxxxxxxxx0xxx0xx00xxxxxxxxxxxxxx|xxxxxxxx00000x0x000xxxxxxxxxxxxxx|xxxxxxxxxx0x0x000xxxxxxxxxxxxxxxx|xxxxxxxxxx0x0xxx0xxxxxxxxxxxxxxxx|xxxxxxxxxxxx00000xxxxxxxxxxxxxxxx|', '111100000000111100000000000000000|100100000000111100000000000000000|100100000000111100000000000000000|111100000000111100000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000011111110111111100000000000|000000011111110111111100000000000|000000011111110111111100000000000|000000011111110111111100000000000|000000011110000000111100000000000|111100011110000000111100000000000|111100011110011100111100011100000|111100000000011100000000011100000|111100011110011100111100011100000|000000011110000000111100000000000|000000011110000000111100000000000|000000011111110111111100000000000|000000011111110111111100000000000|000000011111110111111100000000000|000000011111110111111100000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000000000011100000000000000000|000000000000011100000000000000000|000000000000011100000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|000000000000000000000000000000000|'),
 	(3, 'battleball', '1', 'xxxxxxxxxxxxx444444xxxxxxxxx|xxxxxxxxxxxxx444444xxxxxxxxx|xxxxxxxxxxxxx444444xxxxxxxxx|xxx22222222xx444444xxxxxxxxx|xxx22222222xx444444xxxxxxxxx|xxx22222222xx333333xxxxxxxxx|xxx22222222xx222222xxxxxxxxx|xxx222222222222222222xxxxxxx|xxx222222222222222222xxxxxxx|xxx2222222222222222222100000|xxx2222222222222222222100000|xxxxxxx222222222222222100000|xxxxxxx222222222222222100000|4444432222222222222222100000|4444432222222222222222100000|444443222222222222222xxxxxxx|444443222222222222222xxxxxxx|4444432222222222222222222xxx|4444432222222222222222222xxx|xxxxxxx222222222222222222xxx|xxxxxxx222222222222222222xxx|xxxxxxxxx222222xx22222222xxx|xxxxxxxxx111111xx22222222xxx|xxxxxxxxx000000xx22222222xxx|xxxxxxxxx000000xx22222222xxx|xxxxxxxxx000000xxxxxxxxxxxxx|xxxxxxxxx000000xxxxxxxxxxxxx|xxxxxxxxx000000xxxxxxxxxxxxx|', '0000000000000111111000000000|0000000000000111111000000000|0000000000000111111000000000|0001111111100111111000000000|0001111111100000000000000000|0001111111100000000000000000|0001111111100000000000000000|0001111111111111111110000000|0001111111111111111110000000|0001111111111111111110001111|0001111111111111111110001111|0000000111111111111110001111|0000000111111111111110001111|1111000111111111111110001111|1111000111111111111110001111|1111000111111111111110000000|1111000111111111111110000000|1111000111111111111111110000|1111000111111111111111110000|0000000111111111111111111000|0000000111111111111111111000|0000000000000000011111111000|0000000000000000011111111000|0000000000000000011111111000|0000000001111110011111111000|0000000001111110000000000000|0000000001111110000000000000|0000000001111110000000000000|'),
 	(4, 'battleball', '2', 'xxxxxxx00000000xxx00000000xxxxxxx|xxxxxxx00000000xxx00000000xxxxxxx|xxxxxxx00000000xxx00000000xxxxxxx|xxxxxxx0000000000000000000xxxxxxx|xxxxxxx0000000000000000000xxxxxxx|xxxxxxx0000000000000000000xxxxxxx|xxxxxxx00000000xxx00000000xxxxxxx|2222xxx00000000xxx00000000xxx2222|2222xxx00000000xxx00000000xxx2222|222221000000000xxx000000000122222|222221000000000xxx000000000122222|2222xxx00000000xxx00000000xxx2222|2222xxx00000000xxx00000000xxx2222|xxxxxxx00000000xxx00000000xxxxxxx|xxxxxxx0000000000000000000xxxxxxx|xxxxxxx0000000000000000000xxxxxxx|xxxxxxx0000000000000000000xxxxxxx|xxxxxxx00000000xxx00000000xxxxxxx|xxxxxxx00000000xxx00000000xxxxxxx|xxxxxxx00000000xxx00000000xxxxxxx|', '000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|111100011111111000111111110001111|111100011111111000111111110001111|111100011111111000111111110001111|111100011111111000111111110001111|111100011111111000111111110001111|111100011111111000111111110001111|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|000000011111111000111111110000000|'),
 	(5, 'battleball', '4', 'xxxxxxx222222222222222xxxxxxxx|xxxxxxx222222222222222xxxxxxxx|xxxxxxx222222222222222xxxxxxxx|xxxxxxx222222222222222xxxxxxxx|xxxxxxx222222222222222xxxxxxxx|00012222222222222222222211111x|00012222222222222222222211111x|00012222222222222222222211111x|00012222222222222222222211111x|00xxxxx222222222222222xxx1111x|000xxxx222222222222222xxx0000x|0000xxx222222222222222x0000000|0000xxx22222222222222210000000|0000xxx22222222222222210000000|0000xxx222222222222222x0000000|0000xxx222222222222222xxxxxxxx|00000xx222222222222222xxxxxxxx|000000xxxx11xx11xx11xxxxxxxxxx|x0000000000000000000000xxxxxxx|xx000000000000000000000xxxxxxx|xxx00000000000000000000xxxxxxx|xxxx0000000000000000000xxxxxxx|', '000000011111111111111100000000|000000011111111111111100000000|000000011111111111111100000000|000000011111111111111100000000|000000011111111111111100000000|000000011111111111111100011110|000000011111111111111100011110|000000011111111111111100011110|000000011111111111111100011110|110000011111111111111100000000|111000011111111111111100000000|111100011111111111111101111111|111100011111111111111101111111|111100011111111111111101111111|111100011111111111111101111111|111100011111111111111100000000|111110011111111111111100000000|111111000000000000000000000000|011111111111111111111110000000|001111111111111111111110000000|000111111111111111111110000000|000011111111111111111110000000|');
-/*!40000 ALTER TABLE `games_maps` ENABLE KEYS */;
 
--- Dumping structure for table kepler.games_player_spawns
+-- Dumping structure for table finlay.games_player_spawns
 CREATE TABLE IF NOT EXISTS `games_player_spawns` (
   `type` enum('battleball','snowstorm') NOT NULL DEFAULT 'battleball',
   `map_id` int(11) NOT NULL,
@@ -1165,11 +1158,10 @@ CREATE TABLE IF NOT EXISTS `games_player_spawns` (
   `x` int(11) NOT NULL,
   `y` int(11) NOT NULL,
   `rotation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.games_player_spawns: ~240 rows (approximately)
-/*!40000 ALTER TABLE `games_player_spawns` DISABLE KEYS */;
-INSERT INTO `games_player_spawns` (`type`, `map_id`, `team_id`, `x`, `y`, `rotation`) VALUES
+-- Dumping data for table finlay.games_player_spawns: ~240 rows (approximately)
+REPLACE INTO `games_player_spawns` (`type`, `map_id`, `team_id`, `x`, `y`, `rotation`) VALUES
 	('battleball', 5, 0, 22, 14, 6),
 	('battleball', 5, 0, 22, 13, 6),
 	('battleball', 5, 0, 22, 12, 6),
@@ -1410,9 +1402,8 @@ INSERT INTO `games_player_spawns` (`type`, `map_id`, `team_id`, `x`, `y`, `rotat
 	('battleball', 4, 3, 21, 8, 6),
 	('battleball', 4, 3, 21, 9, 6),
 	('battleball', 4, 3, 21, 10, 6);
-/*!40000 ALTER TABLE `games_player_spawns` ENABLE KEYS */;
 
--- Dumping structure for table kepler.games_ranks
+-- Dumping structure for table finlay.games_ranks
 CREATE TABLE IF NOT EXISTS `games_ranks` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `type` enum('battleball','snowstorm') NOT NULL DEFAULT 'battleball',
@@ -1420,11 +1411,11 @@ CREATE TABLE IF NOT EXISTS `games_ranks` (
   `min_points` int(10) NOT NULL,
   `max_points` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.games_ranks: 8 rows
+-- Dumping data for table finlay.games_ranks: 8 rows
 /*!40000 ALTER TABLE `games_ranks` DISABLE KEYS */;
-INSERT INTO `games_ranks` (`id`, `type`, `title`, `min_points`, `max_points`) VALUES
+REPLACE INTO `games_ranks` (`id`, `type`, `title`, `min_points`, `max_points`) VALUES
 	(1, 'battleball', 'Beginner', 0, 10000),
 	(2, 'battleball', 'Amateur', 10001, 100000),
 	(3, 'battleball', 'Intermediate', 100001, 500000),
@@ -1435,7 +1426,7 @@ INSERT INTO `games_ranks` (`id`, `type`, `title`, `min_points`, `max_points`) VA
 	(8, 'snowstorm', 'Expert', 500001, 0);
 /*!40000 ALTER TABLE `games_ranks` ENABLE KEYS */;
 
--- Dumping structure for table kepler.housekeeping_audit_log
+-- Dumping structure for table finlay.housekeeping_audit_log
 CREATE TABLE IF NOT EXISTS `housekeeping_audit_log` (
   `action` enum('alert_user','kick_user','ban_user','room_alert','room_kick') NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -1443,13 +1434,11 @@ CREATE TABLE IF NOT EXISTS `housekeeping_audit_log` (
   `message` varchar(255) NOT NULL DEFAULT '',
   `extra_notes` varchar(255) NOT NULL DEFAULT '',
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.housekeeping_audit_log: ~0 rows (approximately)
-/*!40000 ALTER TABLE `housekeeping_audit_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `housekeeping_audit_log` ENABLE KEYS */;
+-- Dumping data for table finlay.housekeeping_audit_log: ~0 rows (approximately)
 
--- Dumping structure for table kepler.items
+-- Dumping structure for table finlay.items
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` int(11) NOT NULL DEFAULT 0,
@@ -1467,13 +1456,11 @@ CREATE TABLE IF NOT EXISTS `items` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.items: ~29 rows (approximately)
-/*!40000 ALTER TABLE `items` DISABLE KEYS */;
-/*!40000 ALTER TABLE `items` ENABLE KEYS */;
+-- Dumping data for table finlay.items: ~13 rows (approximately)
 
--- Dumping structure for table kepler.items_definitions
+-- Dumping structure for table finlay.items_definitions
 CREATE TABLE IF NOT EXISTS `items_definitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sprite` varchar(50) DEFAULT NULL,
@@ -1491,11 +1478,10 @@ CREATE TABLE IF NOT EXISTS `items_definitions` (
   `is_recyclable` tinyint(1) NOT NULL DEFAULT 1,
   `drink_ids` text NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1417 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1417 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.items_definitions: ~826 rows (approximately)
-/*!40000 ALTER TABLE `items_definitions` DISABLE KEYS */;
-INSERT INTO `items_definitions` (`id`, `sprite`, `sprite_id`, `name`, `description`, `colour`, `length`, `width`, `top_height`, `max_status`, `behaviour`, `interactor`, `is_tradable`, `is_recyclable`, `drink_ids`) VALUES
+-- Dumping data for table finlay.items_definitions: ~826 rows (approximately)
+REPLACE INTO `items_definitions` (`id`, `sprite`, `sprite_id`, `name`, `description`, `colour`, `length`, `width`, `top_height`, `max_status`, `behaviour`, `interactor`, `is_tradable`, `is_recyclable`, `drink_ids`) VALUES
 	(1, 'shelves_norja', 293, 'Bookcase', 'For nic naks and art deco books', '#FFFFFF,#F7EBBC', 1, 1, 2, '2', 'solid,requires_rights_for_interaction', 'default', 1, 1, ''),
 	(2, 'shelves_polyfon', 349, 'Bookcase', 'For the arty pad', '0,0,0', 2, 1, 1, '2', 'solid,requires_rights_for_interaction', 'default', 1, 1, ''),
 	(3, 'shelves_silo', 82, 'Bookcase', 'For nic naks and art deco books', '0,0,0', 2, 1, 0, '2', 'solid,requires_rights_for_interaction', 'default', 1, 1, ''),
@@ -2322,9 +2308,8 @@ INSERT INTO `items_definitions` (`id`, `sprite`, `sprite_id`, `name`, `descripti
 	(1414, 'rclr_chair', -1, 'Palm Chair', 'Watch out for coconuts', '0,0,0', 1, 1, 1, '2', 'can_sit_on_top', 'chair', 1, 0, ''),
 	(1415, 'rclr_garden', -1, 'Water Garden', 'Self watering', '0,0,0', 1, 3, 0, '2', 'solid', 'default', 1, 0, ''),
 	(1416, 'rclr_sofa', -1, 'Polar Sofa', 'Snuggle up together', '0,0,0', 2, 1, 1, '0', 'can_sit_on_top', 'chair', 1, 0, '');
-/*!40000 ALTER TABLE `items_definitions` ENABLE KEYS */;
 
--- Dumping structure for table kepler.items_moodlight_presets
+-- Dumping structure for table finlay.items_moodlight_presets
 CREATE TABLE IF NOT EXISTS `items_moodlight_presets` (
   `item_id` int(11) NOT NULL,
   `current_preset` int(11) NOT NULL DEFAULT 1,
@@ -2332,13 +2317,11 @@ CREATE TABLE IF NOT EXISTS `items_moodlight_presets` (
   `preset_2` varchar(50) NOT NULL DEFAULT '1,#000000,255',
   `preset_3` varchar(50) NOT NULL DEFAULT '1,#000000,255',
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.items_moodlight_presets: ~0 rows (approximately)
-/*!40000 ALTER TABLE `items_moodlight_presets` DISABLE KEYS */;
-/*!40000 ALTER TABLE `items_moodlight_presets` ENABLE KEYS */;
+-- Dumping data for table finlay.items_moodlight_presets: ~0 rows (approximately)
 
--- Dumping structure for table kepler.items_pets
+-- Dumping structure for table finlay.items_pets
 CREATE TABLE IF NOT EXISTS `items_pets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` bigint(11) NOT NULL,
@@ -2360,13 +2343,11 @@ CREATE TABLE IF NOT EXISTS `items_pets` (
   `rotation` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.items_pets: ~0 rows (approximately)
-/*!40000 ALTER TABLE `items_pets` DISABLE KEYS */;
-/*!40000 ALTER TABLE `items_pets` ENABLE KEYS */;
+-- Dumping data for table finlay.items_pets: ~0 rows (approximately)
 
--- Dumping structure for table kepler.items_photos
+-- Dumping structure for table finlay.items_photos
 CREATE TABLE IF NOT EXISTS `items_photos` (
   `photo_id` int(11) NOT NULL,
   `photo_user_id` bigint(11) NOT NULL,
@@ -2375,34 +2356,28 @@ CREATE TABLE IF NOT EXISTS `items_photos` (
   `photo_checksum` int(11) NOT NULL,
   PRIMARY KEY (`photo_id`),
   UNIQUE KEY `photo_id` (`photo_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.items_photos: ~0 rows (approximately)
-/*!40000 ALTER TABLE `items_photos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `items_photos` ENABLE KEYS */;
+-- Dumping data for table finlay.items_photos: ~2 rows (approximately)
 
--- Dumping structure for table kepler.items_teleporter_links
+-- Dumping structure for table finlay.items_teleporter_links
 CREATE TABLE IF NOT EXISTS `items_teleporter_links` (
   `item_id` int(11) NOT NULL,
   `linked_id` int(11) NOT NULL,
   UNIQUE KEY `item_id` (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.items_teleporter_links: ~0 rows (approximately)
-/*!40000 ALTER TABLE `items_teleporter_links` DISABLE KEYS */;
-/*!40000 ALTER TABLE `items_teleporter_links` ENABLE KEYS */;
+-- Dumping data for table finlay.items_teleporter_links: ~0 rows (approximately)
 
--- Dumping structure for table kepler.messenger_friends
+-- Dumping structure for table finlay.messenger_friends
 CREATE TABLE IF NOT EXISTS `messenger_friends` (
   `from_id` int(11) NOT NULL,
   `to_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.messenger_friends: ~2 rows (approximately)
-/*!40000 ALTER TABLE `messenger_friends` DISABLE KEYS */;
-/*!40000 ALTER TABLE `messenger_friends` ENABLE KEYS */;
+-- Dumping data for table finlay.messenger_friends: ~2 rows (approximately)
 
--- Dumping structure for table kepler.messenger_messages
+-- Dumping structure for table finlay.messenger_messages
 CREATE TABLE IF NOT EXISTS `messenger_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `receiver_id` int(11) DEFAULT NULL,
@@ -2412,23 +2387,19 @@ CREATE TABLE IF NOT EXISTS `messenger_messages` (
   `date` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.messenger_messages: ~3 rows (approximately)
-/*!40000 ALTER TABLE `messenger_messages` DISABLE KEYS */;
-/*!40000 ALTER TABLE `messenger_messages` ENABLE KEYS */;
+-- Dumping data for table finlay.messenger_messages: ~5 rows (approximately)
 
--- Dumping structure for table kepler.messenger_requests
+-- Dumping structure for table finlay.messenger_requests
 CREATE TABLE IF NOT EXISTS `messenger_requests` (
   `from_id` int(11) DEFAULT NULL,
   `to_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.messenger_requests: ~0 rows (approximately)
-/*!40000 ALTER TABLE `messenger_requests` DISABLE KEYS */;
-/*!40000 ALTER TABLE `messenger_requests` ENABLE KEYS */;
+-- Dumping data for table finlay.messenger_requests: ~0 rows (approximately)
 
--- Dumping structure for table kepler.public_items
+-- Dumping structure for table finlay.public_items
 CREATE TABLE IF NOT EXISTS `public_items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `room_model` varchar(255) NOT NULL,
@@ -2445,11 +2416,10 @@ CREATE TABLE IF NOT EXISTS `public_items` (
   `teleport_to` varchar(50) DEFAULT NULL,
   `swim_to` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3466 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=3466 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table kepler.public_items: ~3,465 rows (approximately)
-/*!40000 ALTER TABLE `public_items` DISABLE KEYS */;
-INSERT INTO `public_items` (`id`, `room_model`, `sprite`, `x`, `y`, `z`, `rotation`, `top_height`, `length`, `width`, `behaviour`, `current_program`, `teleport_to`, `swim_to`) VALUES
+-- Dumping data for table finlay.public_items: ~3,465 rows (approximately)
+REPLACE INTO `public_items` (`id`, `room_model`, `sprite`, `x`, `y`, `z`, `rotation`, `top_height`, `length`, `width`, `behaviour`, `current_program`, `teleport_to`, `swim_to`) VALUES
 	(1, 'picnic', 'picnic_cloth1', 5, 16, 0.001, 0, 0.001, 0, 0, 'can_stand_on_top', '', NULL, NULL),
 	(2, 'newbie_lobby', 'crl_lamp', 16, 0, 0, 0, 0.001, 1, 1, 'solid', '', NULL, NULL),
 	(3, 'newbie_lobby', 'crl_sofa2c', 17, 0, 0, 4, 1, 1, 1, 'can_sit_on_top', '', NULL, NULL),
@@ -5915,19 +5885,17 @@ INSERT INTO `public_items` (`id`, `room_model`, `sprite`, `x`, `y`, `z`, `rotati
 	(3463, 'park_a', 'queue_tile2', 21, 6, 0, 2, 0.001, 1, 1, 'extra_parameter,can_stand_on_top', '', NULL, NULL),
 	(3464, 'park_a', 'queue_tile2', 20, 6, 0, 2, 0.001, 1, 1, 'extra_parameter,can_stand_on_top', '', NULL, NULL),
 	(3465, 'park_a', 'queue_tile2', 19, 6, 0, 2, 0.001, 1, 1, 'extra_parameter,can_stand_on_top', '', NULL, NULL);
-/*!40000 ALTER TABLE `public_items` ENABLE KEYS */;
 
--- Dumping structure for table kepler.public_roomwalkways
+-- Dumping structure for table finlay.public_roomwalkways
 CREATE TABLE IF NOT EXISTS `public_roomwalkways` (
   `room_id` int(11) DEFAULT NULL,
   `to_id` int(1) DEFAULT NULL,
   `coords_map` varchar(255) DEFAULT NULL,
   `door_position` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.public_roomwalkways: ~54 rows (approximately)
-/*!40000 ALTER TABLE `public_roomwalkways` DISABLE KEYS */;
-INSERT INTO `public_roomwalkways` (`room_id`, `to_id`, `coords_map`, `door_position`) VALUES
+-- Dumping data for table finlay.public_roomwalkways: ~54 rows (approximately)
+REPLACE INTO `public_roomwalkways` (`room_id`, `to_id`, `coords_map`, `door_position`) VALUES
 	(45, 69, '20,23 20,24 20,25 21,23 21,24 21,25', '3,23,0,2'),
 	(69, 45, '0,22 1,23', '19,24,0,6'),
 	(34, 35, '28,4', NULL),
@@ -5982,27 +5950,23 @@ INSERT INTO `public_roomwalkways` (`room_id`, `to_id`, `coords_map`, `door_posit
 	(64, 61, '0,0 1,0', '15,1,1,4'),
 	(65, 61, '0,0 1,0', '1,3,1,2'),
 	(37, 36, '0,13 1,14 2,15 3,16 4,17 5,18 6,19 7,20 8,21 9,22 10,23 11,24 12,25', '23,7,7,5');
-/*!40000 ALTER TABLE `public_roomwalkways` ENABLE KEYS */;
 
--- Dumping structure for table kepler.rank_badges
+-- Dumping structure for table finlay.rank_badges
 CREATE TABLE IF NOT EXISTS `rank_badges` (
   `rank` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `badge` char(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rank_badges: ~0 rows (approximately)
-/*!40000 ALTER TABLE `rank_badges` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rank_badges` ENABLE KEYS */;
+-- Dumping data for table finlay.rank_badges: ~0 rows (approximately)
 
--- Dumping structure for table kepler.rank_fuserights
+-- Dumping structure for table finlay.rank_fuserights
 CREATE TABLE IF NOT EXISTS `rank_fuserights` (
   `min_rank` int(11) NOT NULL,
   `fuseright` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rank_fuserights: ~48 rows (approximately)
-/*!40000 ALTER TABLE `rank_fuserights` DISABLE KEYS */;
-INSERT INTO `rank_fuserights` (`min_rank`, `fuseright`) VALUES
+-- Dumping data for table finlay.rank_fuserights: ~48 rows (approximately)
+REPLACE INTO `rank_fuserights` (`min_rank`, `fuseright`) VALUES
 	(1, 'default'),
 	(1, 'fuse_login'),
 	(1, 'fuse_buy_credits'),
@@ -6051,53 +6015,46 @@ INSERT INTO `rank_fuserights` (`min_rank`, `fuseright`) VALUES
 	(6, 'fuse_administrator_access'),
 	(6, 'fuse_see_flat_ids'),
 	(5, 'fuse_credits');
-/*!40000 ALTER TABLE `rank_fuserights` ENABLE KEYS */;
 
--- Dumping structure for table kepler.rare_cycle
+-- Dumping structure for table finlay.rare_cycle
 CREATE TABLE IF NOT EXISTS `rare_cycle` (
   `sale_code` varchar(255) NOT NULL,
   `reuse_time` bigint(11) NOT NULL,
   PRIMARY KEY (`sale_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rare_cycle: ~1 rows (approximately)
-/*!40000 ALTER TABLE `rare_cycle` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rare_cycle` ENABLE KEYS */;
+-- Dumping data for table finlay.rare_cycle: ~1 rows (approximately)
 
--- Dumping structure for table kepler.recycler_rewards
+-- Dumping structure for table finlay.recycler_rewards
 CREATE TABLE IF NOT EXISTS `recycler_rewards` (
   `id` int(11) NOT NULL,
   `sale_code` varchar(255) NOT NULL,
   `item_cost` int(11) NOT NULL DEFAULT 10,
   `recycling_session_time_seconds` int(11) DEFAULT 0,
   `collection_time_seconds` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.recycler_rewards: ~6 rows (approximately)
-/*!40000 ALTER TABLE `recycler_rewards` DISABLE KEYS */;
-INSERT INTO `recycler_rewards` (`id`, `sale_code`, `item_cost`, `recycling_session_time_seconds`, `collection_time_seconds`) VALUES
+-- Dumping data for table finlay.recycler_rewards: ~6 rows (approximately)
+REPLACE INTO `recycler_rewards` (`id`, `sale_code`, `item_cost`, `recycling_session_time_seconds`, `collection_time_seconds`) VALUES
 	(2, 'rclr_garden', 30, 7200, 1800),
 	(3, 'rclr_sofa', 50, 10800, 1800),
 	(1, 'rclr_chair', 20, 3600, 1800),
 	(2, 'rclr_garden', 30, 7200, 1800),
 	(3, 'rclr_sofa', 50, 10800, 1800),
 	(1, 'rclr_chair', 20, 3600, 1800);
-/*!40000 ALTER TABLE `recycler_rewards` ENABLE KEYS */;
 
--- Dumping structure for table kepler.recycler_sessions
+-- Dumping structure for table finlay.recycler_sessions
 CREATE TABLE IF NOT EXISTS `recycler_sessions` (
   `user_id` int(11) NOT NULL,
   `reward_id` int(11) NOT NULL,
   `session_started` datetime NOT NULL DEFAULT current_timestamp(),
   `items` text NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.recycler_sessions: ~0 rows (approximately)
-/*!40000 ALTER TABLE `recycler_sessions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `recycler_sessions` ENABLE KEYS */;
+-- Dumping data for table finlay.recycler_sessions: ~0 rows (approximately)
 
--- Dumping structure for table kepler.rooms
+-- Dumping structure for table finlay.rooms
 CREATE TABLE IF NOT EXISTS `rooms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner_id` varchar(11) NOT NULL,
@@ -6106,8 +6063,8 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `description` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `ccts` varchar(255) DEFAULT '',
-  `wallpaper` int(4) DEFAULT 0,
-  `floor` int(4) DEFAULT 0,
+  `wallpaper` int(4) DEFAULT 211,
+  `floor` int(4) DEFAULT 101,
   `showname` tinyint(1) DEFAULT 1,
   `superusers` tinyint(1) DEFAULT 0,
   `accesstype` tinyint(3) DEFAULT 0,
@@ -6120,14 +6077,13 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=1003 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table kepler.rooms: ~69 rows (approximately)
-/*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
-INSERT INTO `rooms` (`id`, `owner_id`, `category`, `name`, `description`, `model`, `ccts`, `wallpaper`, `floor`, `showname`, `superusers`, `accesstype`, `password`, `visitors_now`, `visitors_max`, `rating`, `is_hidden`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table finlay.rooms: ~70 rows (approximately)
+REPLACE INTO `rooms` (`id`, `owner_id`, `category`, `name`, `description`, `model`, `ccts`, `wallpaper`, `floor`, `showname`, `superusers`, `accesstype`, `password`, `visitors_now`, `visitors_max`, `rating`, `is_hidden`, `created_at`, `updated_at`) VALUES
 	(1, '0', 3, 'Welcome Lounge', 'welcome_lounge', 'newbie_lobby', 'hh_room_nlobby', 0, 0, 0, 0, 0, '', 0, 40, 0, 0, '2018-08-11 07:54:01', '2019-10-16 23:35:48'),
 	(2, '0', 3, 'Theatredome', 'theatredrome', 'theater', 'hh_room_theater', 0, 0, 0, 0, 0, '', 0, 100, 0, 0, '2018-08-11 07:54:01', '2022-07-30 17:42:56'),
-	(3, '0', 3, 'Library', 'library', 'library', 'hh_room_library', 0, 0, 0, 0, 0, '', 0, 30, 0, 0, '2018-08-11 07:54:01', '2019-10-16 23:33:57'),
+	(3, '0', 3, 'Library', 'library', 'library', 'hh_room_library', 0, 0, 0, 0, 0, '', 0, 30, 0, 0, '2018-08-11 07:54:01', '2024-04-20 13:59:27'),
 	(4, '0', 5, 'TV Studio', 'tv_studio', 'tv_studio', 'hh_room_tv_studio_general', 0, 0, 0, 0, 0, '', 0, 20, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(5, '0', 5, 'Cinema', 'habbo_cinema', 'cinema_a', 'hh_room_cinema', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2019-10-16 23:07:00'),
 	(6, '0', 5, 'Power Gym', 'sport', 'sport', 'hh_room_sport', 0, 0, 0, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
@@ -6136,7 +6092,7 @@ INSERT INTO `rooms` (`id`, `owner_id`, `category`, `name`, `description`, `model
 	(9, '0', 6, 'The Dirty Duck Pub', 'the_dirty_duck_pub', 'pub_a', 'hh_room_pub', 0, 0, 0, 0, 0, '', 0, 40, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(10, '0', 6, 'Cafe Ole', 'cafe_ole', 'cafe_ole', 'hh_room_cafe', 0, 0, 0, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(11, '0', 6, 'Gallery Cafe', 'eric\'s_eaterie', 'cr_cafe', 'hh_room_erics', 0, 0, 0, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
-	(12, '0', 6, 'Space Cafe', 'space_cafe', 'space_cafe', 'hh_room_space_cafe', 0, 0, 0, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
+	(12, '0', 6, 'Space Cafe', 'space_cafe', 'space_cafe', 'hh_room_space_cafe', 0, 0, 0, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2023-09-15 22:51:08'),
 	(13, '0', 7, 'Rooftop Terrace', 'rooftop', 'rooftop', 'hh_room_rooftop', 0, 0, 0, 0, 0, '', 0, 30, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(14, '0', 7, 'Rooftop Cafe', 'rooftop', 'rooftop_2', 'hh_room_rooftop', 0, 0, 0, 0, 0, '', 0, 20, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(15, '0', 6, 'Palazzo Pizza', 'pizza', 'pizza', 'hh_room_pizza', 0, 0, 0, 0, 0, '', 0, 40, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
@@ -6147,12 +6103,12 @@ INSERT INTO `rooms` (`id`, `owner_id`, `category`, `name`, `description`, `model
 	(20, '0', 7, 'Oldskool Dancefloor', 'old_skool', 'old_skool1', 'hh_room_old_skool', 0, 0, 0, 0, 0, '', 0, 45, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(21, '0', 7, 'The Chromide Club', 'the_chromide_club', 'malja_bar_a', 'hh_room_disco', 0, 0, 0, 0, 0, '', 0, 45, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(22, '0', 7, 'The Chromide Club II', 'the_chromide_club', 'malja_bar_b', 'hh_room_disco', 0, 0, 0, 0, 0, '', 0, 50, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
-	(23, '0', 7, 'Club Massiva', 'club_massiva', 'bar_a', 'hh_room_bar', 0, 0, 0, 0, 0, '', 0, 45, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
-	(24, '0', 7, 'Club Massiva II', 'club_massiva2', 'bar_b', 'hh_room_bar', 0, 0, 0, 0, 0, '', 0, 70, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
+	(23, '0', 7, 'Club Massiva', 'club_massiva', 'bar_a', 'hh_room_bar', 0, 0, 0, 0, 0, '', 0, 45, 0, 0, '2018-08-11 07:54:01', '2024-04-20 14:10:25'),
+	(24, '0', 7, 'Club Massiva II', 'club_massiva2', 'bar_b', 'hh_room_bar', 0, 0, 0, 0, 0, '', 0, 70, 0, 1, '2018-08-11 07:54:01', '2024-04-20 14:12:22'),
 	(25, '0', 6, 'Sunset Cafe', 'sunset_cafe', 'sunset_cafe', 'hh_room_sunsetcafe', 0, 0, 0, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(26, '0', 7, 'Oasis Spa', 'cafe_gold', 'cafe_gold0', 'hh_room_gold', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(27, '0', 9, 'Treehugger Garden', 'chill', 'chill', 'hh_room_chill', 0, 0, 0, 0, 0, '', 0, 30, 0, 0, '2018-08-11 07:54:01', '2019-12-05 01:05:25'),
-	(28, '0', 8, 'Club Mammoth', 'club_mammoth', 'club_mammoth', 'hh_room_clubmammoth', 0, 0, 0, 0, 0, '', 0, 45, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
+	(28, '0', 8, 'Club Mammoth', 'club_mammoth', 'club_mammoth', 'hh_room_clubmammoth', 0, 0, 0, 0, 0, '', 0, 45, 0, 0, '2018-08-11 07:54:01', '2023-09-15 22:48:56'),
 	(29, '0', 9, 'Floating Garden', 'floatinggarden', 'floatinggarden', 'hh_room_floatinggarden', 0, 0, 0, 0, 0, '', 0, 80, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(30, '0', 9, 'Picnic Fields', 'picnic', 'picnic', 'hh_room_picnic', 0, 0, 0, 0, 0, '', 0, 55, 0, 0, '2018-08-11 07:54:01', '2022-07-30 17:53:36'),
 	(31, '0', 9, 'Sun Terrace', 'sun_terrace', 'sun_terrace', 'hh_room_sun_terrace', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2019-10-16 23:21:54'),
@@ -6162,7 +6118,7 @@ INSERT INTO `rooms` (`id`, `owner_id`, `category`, `name`, `description`, `model
 	(35, '0', 9, 'The Infobus', 'park', 'park_b', 'hh_room_park_general,hh_room_park', 0, 0, 0, 0, 0, '', 0, 20, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(36, '0', 10, 'Habbo Lido', 'habbo_lido', 'pool_a', 'hh_room_pool,hh_people_pool', 0, 0, 0, 0, 0, '', 0, 60, 0, 0, '2018-08-11 07:54:01', '2022-07-30 17:52:36'),
 	(37, '0', 10, 'Lido B', 'habbo_lido_ii', 'pool_b', 'hh_room_pool,hh_people_pool', 0, 0, 0, 0, 0, '', 0, 60, 0, 1, '2018-08-11 07:54:01', '2021-12-06 20:56:02'),
-	(38, '0', 10, 'Rooftop Rumble', 'rooftop_rumble', 'md_a', 'hh_room_terrace,hh_paalu,hh_people_pool,hh_people_paalu', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2021-12-06 21:00:22'),
+	(38, '0', 10, 'Rooftop Rumble', 'rooftop_rumble', 'md_a', 'hh_room_terrace,hh_paalu,hh_people_pool,hh_people_paalu', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2023-12-27 10:14:53'),
 	(39, '0', 11, 'Main Lobby', 'main_lobby', 'lobby_a', 'hh_room_lobby', 0, 0, 0, 0, 0, '', 0, 100, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(40, '0', 11, 'Basement Lobby', 'basement_lobby', 'floorlobby_a', 'hh_room_floorlobbies', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2018-08-11 07:54:01'),
 	(41, '0', 11, 'Median Lobby', 'median_lobby', 'floorlobby_b', 'hh_room_floorlobbies', 0, 0, 0, 0, 0, '', 0, 50, 0, 0, '2018-08-11 07:54:01', '2019-10-16 23:06:33'),
@@ -6185,18 +6141,17 @@ INSERT INTO `rooms` (`id`, `owner_id`, `category`, `name`, `description`, `model
 	(58, '0', 12, 'Upper Hallways V', 'hallway_ii', 'hallway11', 'hh_room_hallway', 0, 0, 1, 0, 0, '', 0, 25, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(59, '0', 7, 'Star Lounge', 'star_lounge', 'star_lounge', 'hh_room_starlounge', 0, 0, 1, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2019-10-15 20:45:32'),
 	(60, '0', 8, 'Club Orient', 'orient', 'orient', 'hh_room_orient', 0, 0, 1, 0, 0, '', 0, 35, 0, 0, '2018-08-11 07:54:01', '2019-10-16 23:30:17'),
-	(61, '0', 13, 'Cunning Fox Gamehall', 'cunning_fox_gamehall', 'entryhall', 'hh_room_gamehall,hh_games', 0, 0, 1, 0, 0, '', 0, 25, 0, 0, '2018-08-11 07:54:01', '2021-01-23 17:39:36'),
+	(61, '0', 13, 'Cunning Fox Gamehall', 'cunning_fox_gamehall', 'entryhall', 'hh_room_gamehall,hh_games', 0, 0, 1, 0, 0, '', 0, 25, 0, 0, '2018-08-11 07:54:01', '2023-09-17 22:22:54'),
 	(62, '0', 13, 'TicTacToe hall', 'cunning_fox_gamehall/1', 'hallA', 'hh_room_gamehall,hh_games', 0, 0, 1, 0, 0, '', 0, 25, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(63, '0', 13, 'Battleships hall', 'cunning_fox_gamehall/2', 'hallB', 'hh_room_gamehall,hh_games', 0, 0, 1, 0, 0, '', 0, 25, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(64, '0', 13, 'Chess hall', 'cunning_fox_gamehall/3', 'hallC', 'hh_room_gamehall,hh_games', 0, 0, 1, 0, 0, '', 0, 25, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
 	(65, '0', 13, 'Poker hall', 'cunning_fox_gamehall/4', 'hallD', 'hh_room_gamehall,hh_games', 0, 0, 1, 0, 0, '', 0, 25, 0, 1, '2018-08-11 07:54:01', '2021-11-03 08:46:46'),
-	(66, '0', 13, 'Battleball Lobby', 'bb_lobby_beginner_0', 'bb_lobby_1', 'hh_game_bb,hh_game_bb_room,hh_game_bb_ui,hh_gamesys', 0, 0, 1, 0, 0, '', 0, 25, 0, 0, '2018-08-11 07:54:01', '2021-01-23 17:39:26'),
-	(67, '0', 13, 'Snowstorm Lobby', 'sw_lobby_beginner_0', 'snowwar_lobby_1', 'hh_gamesys,hh_game_snowwar,hh_game_snowwar_room,hh_game_snowwar_ui', 0, 0, 1, 0, 0, '', 0, 25, 0, 0, '2018-08-11 07:54:01', '2021-01-23 17:38:51'),
+	(66, '0', 13, 'Battleball Lobby', 'bb_lobby_beginner_0', 'bb_lobby_1', 'hh_game_bb,hh_room_bb_game,hh_game_bb_ui,hh_gamesys', 0, 0, 1, 0, 0, '', 0, 25, 0, 0, '2018-08-11 07:54:01', '2023-09-17 22:25:26'),
+	(67, '0', 13, 'Snowstorm Lobby', 'sw_lobby_beginner_0', 'snowwar_lobby_1', 'hh_gamesys,hh_game_snowwar,hh_game_snowwar_room,hh_game_snowwar_ui', 0, 0, 1, 0, 0, '', 0, 25, 0, 0, '2018-08-11 07:54:01', '2023-09-17 22:25:45'),
 	(68, '0', 5, 'Imperial Palace', 'emperors', 'emperors', 'hh_room_emperors', 0, 0, 0, 0, 0, '', 0, 30, 0, 0, '2018-08-11 07:54:01', '2022-06-20 22:36:50'),
 	(69, '0', 5, 'Beauty Salon II', 'beauty_salon_loreal', 'beauty_salon1', 'hh_room_beauty_salon_general', 0, 0, 0, 0, 0, '', 0, 25, 0, 1, '2018-08-11 07:54:01', '2022-05-25 22:12:01');
-/*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 
--- Dumping structure for table kepler.rooms_bots
+-- Dumping structure for table finlay.rooms_bots
 CREATE TABLE IF NOT EXISTS `rooms_bots` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
@@ -6212,11 +6167,10 @@ CREATE TABLE IF NOT EXISTS `rooms_bots` (
   `unrecognised_response` mediumtext NOT NULL,
   `hand_items` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rooms_bots: ~34 rows (approximately)
-/*!40000 ALTER TABLE `rooms_bots` DISABLE KEYS */;
-INSERT INTO `rooms_bots` (`id`, `name`, `mission`, `x`, `y`, `start_look`, `figure`, `walkspace`, `room_id`, `speech`, `response`, `unrecognised_response`, `hand_items`) VALUES
+-- Dumping data for table finlay.rooms_bots: ~34 rows (approximately)
+REPLACE INTO `rooms_bots` (`id`, `name`, `mission`, `x`, `y`, `start_look`, `figure`, `walkspace`, `room_id`, `speech`, `response`, `unrecognised_response`, `hand_items`) VALUES
 	(5, 'Xenia', 'The belle of the Battle Ball', 1, 8, '2,2', 'sd=001&sh=002/54,178,190&lg=200/230,49,57&ch=506/230,49,57,141&lh=001/168,123,67&rh=001/168,123,67&hd=001/168,123,67&ey=001&fc=001/168,123,67&hr=506/194,26,134,190&hrb=506/2,3,4&rs=002/230,49,57&ls=002/230,49,57&bd=001/168,123,67', '0,5 0,6 0,7 1,5 1,6 1,7 1,8', 66, 'Welcome to the BattleBall lobby!|Play games for free here|I\'m super pumped to beat other users in Battleball! :)|Calm down, other people are trying to score!#SHOUT|I\'m the best BattleBall player! *smirks*|I wonder how long it would take me to reach the highest level...|You can earn XP when playing BattleBall!', '', 'Hello there!|Hi, said the person who lost BattleBall|Hey!|Hey, I\'m just chilling here.. doing nothing', ''),
 	(6, 'Pamela', ':)', 7, 8, '4,4', 'sd=001&sh=002/148,98,32&lg=005/230,49,57&ch=201/255,255,255&lh=001/215,175,125&rh=001/215,175,125&hd=001/215,175,125&ey=001&fc=001/215,175,125&hr=507/103,78,59&rs=002/255,255,255&ls=002/255,255,255&bd=001/215,175,125', '22,4 23,4 24,4 25,4 26,4 22,5 23,5 24,5 25,5 26,5', 45, '', '', '', ''),
 	(7, 'Regina', 'I know, right?', 3, 6, '2,2', 'sd=001&sh=002/255,115,131&lg=005/255,115,131&ch=018/255,255,255&lh=001/255,204,153&rh=001/255,204,153&hd=001/255,204,153&ey=001&fc=001/255,204,153&hr=501/225,204,120&rs=003/255,255,255&ls=003/255,255,255&bd=001/255,204,153', '2,7 2,8 2,9 3,5 3,6 3,7 3,8 3,9 3,10', 10, 'I\'ve been busy practicing my dance routine for my latest song!|You like coffee? I like my job|You mocha me very happy.|Italians are so good at making coffee because they naturally like to espresso themselves.', 'Enjoy this|This will do the trick|One %lowercaseDrink% coming right up!', 'Repeat that please!|Say that again|What?|Hmm...', 'Coffee'),
@@ -6230,7 +6184,7 @@ INSERT INTO `rooms_bots` (`id`, `name`, `mission`, `x`, `y`, `start_look`, `figu
 	(15, 'Billy', 'You can call me Bill', 5, 13, '2,2', 'sd=001/0&hr=010/224,186,120&hd=002/255,203,152&ey=001/0&fc=001/255,203,152&bd=001/255,203,152&lh=001/255,203,152&rh=001/255,203,152&ch=502/57,65,148&ls=001/57,65,148&rs=001/57,65,148&lg=006/102,102,102&sh=003/51,51,51', '4,10 5,10 5,11 5,12 5,13', 11, 'I serve drinks here|Did you know that coffee comes from plants?|Espresso your opinions politely.|', 'Coming right up!|Be careful, don\'t hurt yourself!', 'Cool story, brew.|Yep, that\'s me', 'Latte,Coffee,Hot Chocolate,Espresso'),
 	(16, 'Phillip', 'Why not try a nice burger?', 1, 13, '2,2', 'sd=001/0&hr=010/255,255,255&hd=002/255,204,153&ey=001/0&fc=001/255,204,153&bd=001/255,204,153&lh=001/255,204,153&rh=001/255,204,153&ch=001/217,113,69&ls=002/217,113,69&rs=002/217,113,69&lg=001/102,102,102&sh=003/47,45,38', '0,7 0,8 0,9 0,10 0,11 0,12 0,13 1,7 1,8 1,9 1,10 1,11 1,12 1,13', 16, '', '', '', ''),
 	(17, 'Ariel', 'Happy to help', 0, 13, '2,2', 'sd=001&sh=001/36&lg=001/200,0,0&ch=006/163&lh=001/255,203,152&rh=001/255,203,152&hd=001/255,203,152&ey=001&fc=001/255,203,152&hr=003/250,50,2&rs=002/163&ls=002/163&bd=001/255,203,152', '0,9 0,10 0,11 0,12 0,13 0,14', 43, 'Sure is chilly at the Ice Cafe...|Here to serve, every, single, day...|Did you know that I never get a break?', '%drink% it is me\'dear\'!:)|Et voila!', 'Sorry - did you want something?', 'Iced Coffee,Coffee,Hot Chocolate,Espresso'),
-	(18, 'Piers', 'The master of the kitchen!', 11, 12, '4,4', 'sd=001/0&hr=799/255,255,255&hd=002/255,204,153&ey=001/0&fc=001/255,204,153&bd=001/255,204,153&lh=001/255,204,153&rh=001/255,204,153&ch=003/255,255,255&ls=001/255,255,255&rs=001/255,255,255&lg=004/255,255,255&sh=004/255,255,255', '3,12 4,12 5,12 6,12 7,12 8,12 9,12 10,12 11,12 12,12 3,13 4,13 5,13 6,13 7,13 8,13 9,13 10,12 11,13 12,13', 8, 'Would you like to taste my wrath?|The silverback grilla is native to this area.|Heaters gonna heat.|That\'s a recipe for disaster.', '', 'Yes?|What? I\'m busy you know|A FINE CHOICE#SHOUT|Soup man, howâ€™s it going?', ''),
+	(18, 'Piers', 'The master of the kitchen!', 11, 12, '4,4', 'sd=001/0&hr=799/255,255,255&hd=002/255,204,153&ey=001/0&fc=001/255,204,153&bd=001/255,204,153&lh=001/255,204,153&rh=001/255,204,153&ch=003/255,255,255&ls=001/255,255,255&rs=001/255,255,255&lg=004/255,255,255&sh=004/255,255,255', '3,12 4,12 5,12 6,12 7,12 8,12 9,12 10,12 11,12 12,12 3,13 4,13 5,13 6,13 7,13 8,13 9,13 10,12 11,13 12,13', 8, 'Would you like to taste my wrath?|The silverback grilla is native to this area.|Heaters gonna heat.|That\'s a recipe for disaster.', '', 'Yes?|What? I\'m busy you know|A FINE CHOICE#SHOUT|Soup man, howÃ¢â‚¬â„¢s it going?', ''),
 	(19, 'Marcel', 'In search of lost time', 11, 15, '2,2', 'sd=001&sh=003/154,154,154&lg=001/98,90,32&ch=202/255,210,179&lh=001/255,210,179&rh=001/255,210,179&hd=001/255,204,153&ey=001&fc=001/255,204,153&hr=203/98,98,98&rs=001/255,210,179&ls=001/255,210,179&bd=001/255,204,153', '7,14 8,14 9,14 10,14 11,14 7,15 8,15 9,15 10,15 11,15 7,16 8,16 9,16 10,16 11,16', 3, '', '', '', ''),
 	(20, 'Chloe', 'Service with a smile', 6, 30, '2,2', 'sd=001&sh=001/255,115,41&lg=999/255,255,255&ch=006/35,134,182&lh=001/255,203,1522&rh=001/255,203,152&hd=001/255,203,152&ey=001&fc=001/255,203,152&hr=003/250,50,2&rs=002/35,134,182&ls=002/35,134,182&bd=001/255,203,152', '6,29 6,30', 36, 'I need to get out of the ice cream booth and into the DJ booth!|Ow there goes my eardrum!#SHOUT|I wish I looked that good in a bikini|When will I, will I be a famous Habbo who gets on the VIP list?|I\'m a fiery redhead - come here boys!', 'There you go.', 'Hello sweetie|Hi, how can I help?|Well hello there', ''),
 	(22, 'Berith', 'Serving you with a smile :)', 11, 0, '4,4', 'sd=001&sh=002/148,98,32&lg=005/230,49,57&ch=201/255,255,255&lh=001/215,175,125&rh=001/215,175,125&hd=001/215,175,125&ey=001&fc=001/215,175,125&hr=506/103,78,59&rs=002/255,255,255&ls=002/255,255,255&bd=001/215,175,125', '6,0 7,0 8,0 9,0 10,0 11,0 12,0 6,1 7,1 8,1 9,1 10,1 11,1 12,1', 28, 'It\'s pretty cool working here, I must say|Maybe some day I will become a club member...|Who knew that someone like me would end up working here?', 'There you are!|Enjoy!|Here, take this!', 'Sorry? I didn\'t catch that|Hello there!|That\'s my name, don\'t wear it out', ''),
@@ -6251,9 +6205,8 @@ INSERT INTO `rooms_bots` (`id`, `name`, `mission`, `x`, `y`, `start_look`, `figu
 	(43, 'Tao', 'Tea is serenity', 10, 4, '4,4', 'sd=001&sh=001/36&lg=001&ch=002/163,20,20&lh=001/171,122,89&rh=001/171,122,89&hd=001/171,122,89&ey=001&fc=001/171,122,89&hr=791/255,255,255&rs=001/163,20,20&ls=001/163,20,20&bd=001/8', '8,2 9,2 10,2 11,2 8,3 9,3 10,3 11,3 8,4 9,4 10,4 11,4', 18, '', '', '', ''),
 	(44, 'Harry', 'Happy to help', 8, 21, '2,2', 'sd=001&sh=003/41,41,41&lg=006/51,51,51&ch=202/139,24,32&lh=001/255,210,179&rh=001/255,210,179&hd=001/255,204,153&ey=001&fc=001/255,204,153&hr=203/103,78,59&hrb=203/2,3,4&rs=001/255,255,255&ls=001/255,255,255&bd=001/255,204,153', '9,18 9,16 9,17 9,19 9,20 9,21 9,22 9,23 8,18 8,16 8,17 8,19 8,20 8,21 8,22 8,23', 1, 'Please keep it down people are trying to think!#SHOUT|Only use the Call for help in an emergency!|Want to know more about Habbo Hotel? Ask a Habbo Guide!|Is it me or is something BIG about to happen?|In Trouble? Call for Moderator assistance using the Blue Question Mark!|There\'s no such thing as a free lunch or free credits!', 'Why Hello there! *Shakes Habbo Hand* My name\'s Harry.|Hello, Hello, Hello!|Hello and welcome to Habbo Hotel! Enjoy your stay! :)', 'Why Hello there! *Shakes Habbo Hand* My name\'s Harry.|Hello, Hello, Hello!|Hello and welcome to Habbo Hotel! Enjoy your stay! :)', ''),
 	(45, 'Miho', 'My katana thinks you\'re cute!', 14, 25, '2,2', 'sd=001&sh=001/36&lg=200/204,204,204&ch=204/204,204,204&lh=001/215,175,125&rh=001/215,175,125&hd=001/215,175,125&ey=001&fc=001/215,175,125&hr=504/50,91,106&rs=002/204,204,204&ls=002/204,204,204&bd=001/8', '14,24 14,25', 27, 'Zen Garden is the ultimate in relaxation|Listen to the breeze blowing through the leaves|Welcome to my garden a place of quiet reflection...|Listen to the breeze blowing through the leaves...', 'I hope you make peace with this|Relax with this|Relaxation can be achieved this this', 'That is my name.|Say again - it\'s a bit noisy in here#WHISPER|You bring confusion to my mind, and pain to my ears...#WHISPER|', 'Water');
-/*!40000 ALTER TABLE `rooms_bots` ENABLE KEYS */;
 
--- Dumping structure for table kepler.rooms_categories
+-- Dumping structure for table finlay.rooms_categories
 CREATE TABLE IF NOT EXISTS `rooms_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` int(11) NOT NULL,
@@ -6266,11 +6219,10 @@ CREATE TABLE IF NOT EXISTS `rooms_categories` (
   `minrole_setflatcat` int(11) DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rooms_categories: ~21 rows (approximately)
-/*!40000 ALTER TABLE `rooms_categories` DISABLE KEYS */;
-INSERT INTO `rooms_categories` (`id`, `order_id`, `parent_id`, `isnode`, `name`, `public_spaces`, `allow_trading`, `minrole_access`, `minrole_setflatcat`) VALUES
+-- Dumping data for table finlay.rooms_categories: ~21 rows (approximately)
+REPLACE INTO `rooms_categories` (`id`, `order_id`, `parent_id`, `isnode`, `name`, `public_spaces`, `allow_trading`, `minrole_access`, `minrole_setflatcat`) VALUES
 	(2, 0, 0, 0, 'No category', 0, 0, 1, 1),
 	(3, 0, 0, 1, 'Public Rooms', 1, 0, 1, 6),
 	(4, 0, 0, 1, 'Guest Rooms', 0, 0, 1, 6),
@@ -6292,9 +6244,8 @@ INSERT INTO `rooms_categories` (`id`, `order_id`, `parent_id`, `isnode`, `name`,
 	(117, 0, 4, 0, 'Gaming & Race Rooms', 0, 0, 1, 1),
 	(118, 0, 4, 0, 'Help Centre Rooms', 0, 0, 1, 1),
 	(120, 0, 4, 0, 'Miscellaneous', 0, 0, 1, 1);
-/*!40000 ALTER TABLE `rooms_categories` ENABLE KEYS */;
 
--- Dumping structure for table kepler.rooms_events
+-- Dumping structure for table finlay.rooms_events
 CREATE TABLE IF NOT EXISTS `rooms_events` (
   `room_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -6304,13 +6255,11 @@ CREATE TABLE IF NOT EXISTS `rooms_events` (
   `expire_time` bigint(11) NOT NULL,
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_id` (`room_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rooms_events: ~0 rows (approximately)
-/*!40000 ALTER TABLE `rooms_events` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rooms_events` ENABLE KEYS */;
+-- Dumping data for table finlay.rooms_events: ~0 rows (approximately)
 
--- Dumping structure for table kepler.rooms_models
+-- Dumping structure for table finlay.rooms_models
 CREATE TABLE IF NOT EXISTS `rooms_models` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `model_id` varchar(255) NOT NULL,
@@ -6323,11 +6272,10 @@ CREATE TABLE IF NOT EXISTS `rooms_models` (
   `trigger_class` enum('flat_trigger','battleball_lobby_trigger','snowstorm_lobby_trigger','space_cafe_trigger','habbo_lido_trigger','rooftop_rumble_trigger','diving_deck_trigger','infobus_park','infobus_poll','none') NOT NULL DEFAULT 'flat_trigger',
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rooms_models: ~91 rows (approximately)
-/*!40000 ALTER TABLE `rooms_models` DISABLE KEYS */;
-INSERT INTO `rooms_models` (`id`, `model_id`, `model_name`, `door_x`, `door_y`, `door_z`, `door_dir`, `heightmap`, `trigger_class`) VALUES
+-- Dumping data for table finlay.rooms_models: ~91 rows (approximately)
+REPLACE INTO `rooms_models` (`id`, `model_id`, `model_name`, `door_x`, `door_y`, `door_z`, `door_dir`, `heightmap`, `trigger_class`) VALUES
 	(1, 'model_a', 'model_a', 3, 5, 0, 2, 'xxxxxxxxxxxx|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxx00000000|xxxxxxxxxxxx|xxxxxxxxxxxx', 'flat_trigger'),
 	(2, 'model_b', 'model_b', 0, 5, 0, 2, 'xxxxxxxxxxxx|xxxxx0000000|xxxxx0000000|xxxxx0000000|xxxxx0000000|x00000000000|x00000000000|x00000000000|x00000000000|x00000000000|x00000000000|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx', 'flat_trigger'),
 	(3, 'model_c', 'model_c', 4, 7, 0, 2, 'xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxx000000x|xxxxx000000x|xxxxx000000x|xxxxx000000x|xxxxx000000x|xxxxx000000x|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx|xxxxxxxxxxxx', 'flat_trigger'),
@@ -6419,40 +6367,34 @@ INSERT INTO `rooms_models` (`id`, `model_id`, `model_name`, `door_x`, `door_y`, 
 	(89, 'model_s', 'model_s', 0, 3, 0, 2, 'xxxxxxx|x00000x|x00000x|000000x|x00000x|x00000x|x00000x|x00000x|xxxxxxx', 'flat_trigger'),
 	(90, 'emperors', 'emperors', 11, 31, 0, 0, 'xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxx444xxxx4444xxxxxx|xxxx2x4444xxxx44444x2xxx|xxxx2x44444x4x44444x2xxx|xxxx2x4444444444444x2xxx|xxxx2x33xx33333xx33x2xxx|xxxx2222xx22222xx2222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22xx222222222xx22xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222222222222222xxx|xxxx22222xx22x2222222xxx|xxxxx2xx2xx22xxx2xx2xxxx|xxxxxxxxxxx11xxxxxxxxxxx|xxxxxxxxxxx00xxxxxxxxxxx|xxxxxxxxxxx00xxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx', 'none'),
 	(91, 'beauty_salon1', 'beauty_salon1', 14, 3, 0, 1, 'xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxxxxxxxxxxxx|xxxxxxxxxxxxxx0xxxxxxxxx|xxxxxxx000000000000000xx|xxxxxx0000000000000000xx|xxxxx000000000000xxxxxxx|xxxx000000000000000000xx|xxx0000000000000000000xx|xxx0000000000000000000xx|xxx0000000000000000000xx|xxxxxxxxxxxxxxxx000000xx|xx0000000000000x000000xx|000000000000000x000000xx|000000000000000x000000xx|000000000000000x000000xx|00x000000000000x000000xx|00xxxxxxxxxxxxxx000000xx|00xxxxxxxxxxxxxx000000xx|00x0000000000000000000xx|00x0000000000000000000xx|00x0000000000000000000xx|0000000000000000000000xx|x000000000000000000000xx|xxx0000000000000000000xx', 'none');
-/*!40000 ALTER TABLE `rooms_models` ENABLE KEYS */;
 
--- Dumping structure for table kepler.rooms_rights
+-- Dumping structure for table finlay.rooms_rights
 CREATE TABLE IF NOT EXISTS `rooms_rights` (
   `user_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.rooms_rights: ~0 rows (approximately)
-/*!40000 ALTER TABLE `rooms_rights` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rooms_rights` ENABLE KEYS */;
+-- Dumping data for table finlay.rooms_rights: ~0 rows (approximately)
 
--- Dumping structure for table kepler.room_chatlogs
+-- Dumping structure for table finlay.room_chatlogs
 CREATE TABLE IF NOT EXISTS `room_chatlogs` (
   `user_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `timestamp` bigint(20) NOT NULL,
   `chat_type` tinyint(1) NOT NULL,
   `message` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.room_chatlogs: ~2 rows (approximately)
-/*!40000 ALTER TABLE `room_chatlogs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `room_chatlogs` ENABLE KEYS */;
+-- Dumping data for table finlay.room_chatlogs: ~4 rows (approximately)
 
--- Dumping structure for table kepler.schema_migrations
+-- Dumping structure for table finlay.schema_migrations
 CREATE TABLE IF NOT EXISTS `schema_migrations` (
   `version` varchar(255) NOT NULL,
   PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.schema_migrations: ~61 rows (approximately)
-/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` (`version`) VALUES
+-- Dumping data for table finlay.schema_migrations: ~61 rows (approximately)
+REPLACE INTO `schema_migrations` (`version`) VALUES
 	('20180605202455'),
 	('20180605202822'),
 	('20180605203204'),
@@ -6514,46 +6456,39 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 	('20180915211843'),
 	('20180915212304'),
 	('20180916030415');
-/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 
--- Dumping structure for table kepler.settings
+-- Dumping structure for table finlay.settings
 CREATE TABLE IF NOT EXISTS `settings` (
   `setting` varchar(50) NOT NULL,
   `value` text NOT NULL DEFAULT '',
   PRIMARY KEY (`setting`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.settings: ~64 rows (approximately)
-/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+-- Dumping data for table finlay.settings: ~65 rows (approximately)
 
--- Dumping structure for table kepler.soundmachine_disks
+-- Dumping structure for table finlay.soundmachine_disks
 CREATE TABLE IF NOT EXISTS `soundmachine_disks` (
   `item_id` bigint(11) NOT NULL,
   `soundmachine_id` int(11) NOT NULL DEFAULT 0,
   `slot_id` int(11) NOT NULL,
   `song_id` int(11) NOT NULL,
   `burned_at` bigint(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.soundmachine_disks: ~0 rows (approximately)
-/*!40000 ALTER TABLE `soundmachine_disks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `soundmachine_disks` ENABLE KEYS */;
+-- Dumping data for table finlay.soundmachine_disks: ~0 rows (approximately)
 
--- Dumping structure for table kepler.soundmachine_playlists
+-- Dumping structure for table finlay.soundmachine_playlists
 CREATE TABLE IF NOT EXISTS `soundmachine_playlists` (
   `item_id` int(11) NOT NULL,
   `song_id` int(11) NOT NULL,
   `slot_id` int(11) NOT NULL,
   KEY `machineid` (`item_id`),
   KEY `songid` (`song_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.soundmachine_playlists: ~0 rows (approximately)
-/*!40000 ALTER TABLE `soundmachine_playlists` DISABLE KEYS */;
-/*!40000 ALTER TABLE `soundmachine_playlists` ENABLE KEYS */;
+-- Dumping data for table finlay.soundmachine_playlists: ~0 rows (approximately)
 
--- Dumping structure for table kepler.soundmachine_songs
+-- Dumping structure for table finlay.soundmachine_songs
 CREATE TABLE IF NOT EXISTS `soundmachine_songs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT 0,
@@ -6563,24 +6498,20 @@ CREATE TABLE IF NOT EXISTS `soundmachine_songs` (
   `data` text NOT NULL DEFAULT '',
   `burnt` tinyint(1) NOT NULL DEFAULT 0,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.soundmachine_songs: ~1 rows (approximately)
-/*!40000 ALTER TABLE `soundmachine_songs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `soundmachine_songs` ENABLE KEYS */;
+-- Dumping data for table finlay.soundmachine_songs: ~0 rows (approximately)
 
--- Dumping structure for table kepler.soundmachine_tracks
+-- Dumping structure for table finlay.soundmachine_tracks
 CREATE TABLE IF NOT EXISTS `soundmachine_tracks` (
   `soundmachine_id` int(11) NOT NULL,
   `track_id` int(11) NOT NULL,
   `slot_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.soundmachine_tracks: ~1 rows (approximately)
-/*!40000 ALTER TABLE `soundmachine_tracks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `soundmachine_tracks` ENABLE KEYS */;
+-- Dumping data for table finlay.soundmachine_tracks: ~0 rows (approximately)
 
--- Dumping structure for table kepler.users
+-- Dumping structure for table finlay.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
@@ -6614,128 +6545,108 @@ CREATE TABLE IF NOT EXISTS `users` (
   `snowstorm_points` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users: ~2 rows (approximately)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+-- Dumping data for table finlay.users: ~3 rows (approximately)
 
--- Dumping structure for table kepler.users_badges
+-- Dumping structure for table finlay.users_badges
 CREATE TABLE IF NOT EXISTS `users_badges` (
   `user_id` int(11) NOT NULL,
   `badge` char(3) NOT NULL,
   KEY `users_badges_users_FK` (`user_id`),
   CONSTRAINT `users_badges_users_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_badges: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users_badges` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_badges` ENABLE KEYS */;
+-- Dumping data for table finlay.users_badges: ~0 rows (approximately)
 
--- Dumping structure for table kepler.users_bans
+-- Dumping structure for table finlay.users_bans
 CREATE TABLE IF NOT EXISTS `users_bans` (
   `ban_type` enum('MACHINE_ID','IP_ADDRESS','USER_ID') NOT NULL,
   `banned_value` varchar(250) NOT NULL,
   `message` text NOT NULL,
   `banned_until` bigint(11) NOT NULL,
   PRIMARY KEY (`banned_value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_bans: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users_bans` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_bans` ENABLE KEYS */;
+-- Dumping data for table finlay.users_bans: ~0 rows (approximately)
 
--- Dumping structure for table kepler.users_club_gifts
+-- Dumping structure for table finlay.users_club_gifts
 CREATE TABLE IF NOT EXISTS `users_club_gifts` (
   `user_id` int(11) NOT NULL,
   `sprite` varchar(50) NOT NULL,
   `date_received` bigint(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_club_gifts: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users_club_gifts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_club_gifts` ENABLE KEYS */;
+-- Dumping data for table finlay.users_club_gifts: ~0 rows (approximately)
 
--- Dumping structure for table kepler.users_ip_logs
+-- Dumping structure for table finlay.users_ip_logs
 CREATE TABLE IF NOT EXISTS `users_ip_logs` (
   `user_id` int(11) NOT NULL,
   `ip_address` varchar(256) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_ip_logs: ~2 rows (approximately)
-/*!40000 ALTER TABLE `users_ip_logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_ip_logs` ENABLE KEYS */;
+-- Dumping data for table finlay.users_ip_logs: ~3 rows (approximately)
 
--- Dumping structure for table kepler.users_mutes
+-- Dumping structure for table finlay.users_mutes
 CREATE TABLE IF NOT EXISTS `users_mutes` (
   `user_id` int(11) NOT NULL,
   `muted_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_mutes: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users_mutes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_mutes` ENABLE KEYS */;
+-- Dumping data for table finlay.users_mutes: ~0 rows (approximately)
 
--- Dumping structure for table kepler.users_room_favourites
+-- Dumping structure for table finlay.users_room_favourites
 CREATE TABLE IF NOT EXISTS `users_room_favourites` (
   `room_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_room_favourites: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users_room_favourites` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_room_favourites` ENABLE KEYS */;
+-- Dumping data for table finlay.users_room_favourites: ~0 rows (approximately)
 
--- Dumping structure for table kepler.users_room_votes
+-- Dumping structure for table finlay.users_room_votes
 CREATE TABLE IF NOT EXISTS `users_room_votes` (
   `user_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `vote` int(11) NOT NULL,
   `expire_time` bigint(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kepler.users_room_votes: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users_room_votes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users_room_votes` ENABLE KEYS */;
+-- Dumping data for table finlay.users_room_votes: ~0 rows (approximately)
 
--- Dumping structure for table kepler.vouchers
+-- Dumping structure for table finlay.vouchers
 CREATE TABLE IF NOT EXISTS `vouchers` (
   `voucher_code` varchar(100) NOT NULL,
   `credits` int(11) NOT NULL DEFAULT 0,
   `expiry_date` datetime DEFAULT NULL,
   `is_single_use` tinyint(11) NOT NULL DEFAULT 1,
   UNIQUE KEY `voucher_code` (`voucher_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table kepler.vouchers: ~0 rows (approximately)
-/*!40000 ALTER TABLE `vouchers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vouchers` ENABLE KEYS */;
+-- Dumping data for table finlay.vouchers: ~0 rows (approximately)
 
--- Dumping structure for table kepler.vouchers_history
+-- Dumping structure for table finlay.vouchers_history
 CREATE TABLE IF NOT EXISTS `vouchers_history` (
   `voucher_code` varchar(100) NOT NULL,
   `user_id` int(11) NOT NULL,
   `used_at` datetime NOT NULL DEFAULT current_timestamp(),
   `credits_redeemed` int(11) DEFAULT NULL,
   `items_redeemed` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table kepler.vouchers_history: ~0 rows (approximately)
-/*!40000 ALTER TABLE `vouchers_history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vouchers_history` ENABLE KEYS */;
+-- Dumping data for table finlay.vouchers_history: ~0 rows (approximately)
 
--- Dumping structure for table kepler.vouchers_items
+-- Dumping structure for table finlay.vouchers_items
 CREATE TABLE IF NOT EXISTS `vouchers_items` (
   `voucher_code` varchar(100) NOT NULL,
   `catalogue_sale_code` varchar(100) NOT NULL,
   KEY `voucher_code` (`voucher_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=COMPACT;
 
--- Dumping data for table kepler.vouchers_items: ~0 rows (approximately)
-/*!40000 ALTER TABLE `vouchers_items` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vouchers_items` ENABLE KEYS */;
+-- Dumping data for table finlay.vouchers_items: ~0 rows (approximately)
 
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
