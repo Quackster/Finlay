@@ -68,6 +68,10 @@ public class RareManager {
         this.rareList = new LinkedList<>();
 
         for (CataloguePage cataloguePage : CatalogueManager.getInstance().getCataloguePages()) {
+            if (cataloguePage.getMinRole() == null) {
+                continue;
+            }
+            
             // Skip pages where normal users can access
             if (!(cataloguePage.getMinRole().getRankId() > 1)) {
                 continue;
