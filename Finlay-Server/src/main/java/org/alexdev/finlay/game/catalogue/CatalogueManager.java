@@ -245,6 +245,9 @@ public class CatalogueManager {
                 continue;
             }
 
+            if (page.getMinRole() == null)
+                continue;
+
             if (minimumRank.getRankId() >= page.getMinRole().getRankId()) {
                 cataloguePagesForRank.add(page);
             }
