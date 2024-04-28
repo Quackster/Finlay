@@ -64,6 +64,7 @@ public class MessengerUser {
         response.writeString(this.consoleMotto);
 
         boolean isOnline = (user != null);
+        String location;
 
         response.writeBool(isOnline);
 
@@ -72,17 +73,21 @@ public class MessengerUser {
                 Room room = user.getRoomUser().getRoom();
 
                 if (room.getData().getOwnerId() > 0) {
-                    response.writeString("Floor1a");
+                    // response.writeString("Floor1a");
+                    location = "Floor1a";
                 } else {
-                    response.writeString(room.getData().getPublicName());
+                    location = room.getData().getPublicName();
                 }
             } else {
-                response.writeString("On hotel view");
+                location = "On hotel view";
+                //response.writeString("On hotel view");
             }
         } else {
-            response.writeString(DateUtil.getDateAsString(this.lastOnline));
+            // response.writeString(DateUtil.getDateAsString(this.lastOnline));
+            location = DateUtil.getDateAsString(this.lastOnline);
         }
 
+        response.writeString(location);
         response.writeString(DateUtil.getDateAsString(this.lastOnline));
         response.writeString(this.figure);
     }

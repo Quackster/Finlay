@@ -12,6 +12,6 @@ public class MESSENGERINIT implements MessageEvent {
     @Override
     public void handle(Player player, NettyRequest reader) {
         Messenger messenger = PlayerManager.getInstance().getMessengerData(player.getDetails().getId());
-        //player.send(new MESSENGER_INIT(player, player.getDetails().getConsoleMotto(), messenger));
+        player.send(new MESSENGER_INIT(player, player.getDetails().getConsoleMotto(), messenger));
     }
 }

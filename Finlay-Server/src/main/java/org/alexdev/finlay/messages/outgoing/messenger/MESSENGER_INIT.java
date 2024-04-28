@@ -42,6 +42,33 @@ public class MESSENGER_INIT extends MessageComposer {
         response.writeInt(clubFriendsLimit);
 
         response.writeInt(this.friends.size());
+        for (MessengerUser friend : this.friends) {
+            friend.serialise(response);
+        }
+
+
+        response.writeInt(this.messages.size());
+
+        for (MessengerMessage msg : this.messages) {
+            response.writeInt(msg.getId());
+            response.writeInt(msg.getFromId());
+            response.writeBool(Character.toLowerCase(msg.getSenderDetails().getSex()) == 'm');
+            response.writeString(msg.getSenderDetails().getFigure());
+            response.writeString(DateUtil.getDateAsString(msg.getTimeSet()));
+            response.writeString(msg.getMessage());
+        }
+
+        response.writeInt(0); // Campaign messages
+
+        response.writeInt(this.requests.size());
+
+        for (MessengerUser requester : this.requests) {
+            response.writeInt(requester.getUserId());
+            response.writeString(requester.getUsername());
+        }
+
+        /*
+        response.writeInt(this.friends.size());
 
         for (MessengerUser friend : this.friends) {
             friend.serialise(response);
@@ -64,7 +91,7 @@ public class MESSENGER_INIT extends MessageComposer {
         for (MessengerUser requester : this.requests) {
             response.writeInt(requester.getUserId());
             response.writeString(requester.getUsername());
-        }
+        }*/
     }
 
     @Override
