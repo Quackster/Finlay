@@ -57,7 +57,7 @@ public class SETSTUFFDATA implements MessageEvent {
                 && !player.hasFuse(Fuseright.ANY_ROOM_CONTROLLER)) {
             return;
         }
-        
+
         if (item.hasBehaviour(ItemBehaviour.REQUIRES_TOUCHING_FOR_INTERACTION)) {
             if (!item.getTile().getPosition().touches(player.getRoomUser().getTile().getPosition())) {
                 Position nextPosition = item.getPosition().getSquareInFront();
@@ -82,20 +82,20 @@ public class SETSTUFFDATA implements MessageEvent {
 
         String newData = null;
 
-        if (item.hasBehaviour(ItemBehaviour.GATE)) {
-            if (itemData.equals("O") || itemData.equals("C")) {
-                newData = itemData;
+        // if (item.hasBehaviour(ItemBehaviour.GATE)) {
+        if (itemData.equals("O") || itemData.equals("C")) {
+            newData = itemData;
 
-                if (itemData.equals("C")) {
-                    RoomTile tile = item.getTile();
+            if (itemData.equals("C")) {
+                RoomTile tile = item.getTile();
 
-                    // Make all entities walk out of gate when it's closed
-                    if (tile.getEntities().size() > 0) {
-                        // Can't close gate if there's a user on the tile
-                        return;
-                    }
+                // Make all entities walk out of gate when it's closed
+                if (tile.getEntities().size() > 0) {
+                    // Can't close gate if there's a user on the tile
+                    return;
                 }
             }
+            //}
         } else {
             if (item.hasBehaviour(ItemBehaviour.CUSTOM_DATA_TRUE_FALSE) &&
                     (itemData.equals("TRUE") || itemData.equals("FALSE") || itemData.equals("I") || itemData.equals("H"))) {
