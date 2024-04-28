@@ -26,18 +26,18 @@ jobs:
       - name: Decompress distribution zip file
         uses: montudor/action-zip@v1
         with:
-          args: unzip -qq Kepler-Server/build/distributions/Kepler-Server.zip -d ./release
+          args: unzip -qq Finlay-Server/build/distributions/Finlay-Server.zip -d ./release
           
       - name: File release preparation
         run: |
-          sudo rm -rf ./release/Kepler-Server/bin/*
-          sudo rm -rf ./release/Kepler-Server/bin
-          sudo mkdir ./Kepler
-          sudo mkdir ./Kepler/lib
-          sudo mv ./release/Kepler-Server/lib/Kepler-Server.jar ./Kepler/kepler.jar
-          sudo mv ./release/Kepler-Server/lib/* ./Kepler/lib
-          sudo cp tools/scripts/run.bat ./Kepler/
-          sudo cp tools/scripts/run.sh ./Kepler/
+          sudo rm -rf ./release/Finlay-Server/bin/*
+          sudo rm -rf ./release/Finlay-Server/bin
+          sudo mkdir ./Finlay
+          sudo mkdir ./Finlay/lib
+          sudo mv ./release/Finlay-Server/lib/Finlay-Server.jar ./Finlay/Finlay.jar
+          sudo mv ./release/Finlay-Server/lib/* ./Finlay/lib
+          sudo cp tools/scripts/run.bat ./Finlay/
+          sudo cp tools/scripts/run.sh ./Finlay/
 
       - id: sha-short
         name: Get short SHA
@@ -46,7 +46,7 @@ jobs:
       - name: Compress release files
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r ./Kepler-${{ steps.sha-short.outputs.sha-short }}.zip ./Kepler
+          args: zip -qq -r ./Finlay-${{ steps.sha-short.outputs.sha-short }}.zip ./Finlay
           
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -55,4 +55,4 @@ jobs:
           prerelease: true
           title: "Development Build ${{ steps.sha-short.outputs.sha-short }}"
           files: |
-            Kepler-${{ steps.sha-short.outputs.sha-short }}.zip
+            Finlay-${{ steps.sha-short.outputs.sha-short }}.zip
